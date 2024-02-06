@@ -1,0 +1,237 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 320px);
+    background-color: #fff;
+    width: 640px;
+    height: 832px;
+  }
+  .if-you-already,
+  .sign-in {
+    position: absolute;
+    color: #5d64cb;
+    display: inline-block;
+  }
+  .sign-in {
+    margin: 0;
+    top: 111px;
+    left: 201px;
+    font-size: 50px;
+    font-weight: 800;
+    font-family: inherit;
+    width: 237px;
+    height: 41px;
+  }
+  .if-you-already {
+    top: 206px;
+    left: 150px;
+    font-size: 24px;
+    font-weight: 600;
+    width: 341px;
+    height: 43px;
+  }
+  .forget-your-password,
+  .password,
+  .username {
+    position: absolute;
+    top: 528px;
+    left: 162px;
+    font-weight: 600;
+    display: inline-block;
+    width: 316.76px;
+    height: 20.62px;
+  }
+  .password,
+  .username {
+    top: 323px;
+    left: 101px;
+    text-align: left;
+    width: 140.57px;
+  }
+  .password {
+    top: 440.96px;
+  }
+  .rectangle-insert-your-nam {
+    color: black;
+    border: 0;
+    background-color: #e3e3e3;
+    position: absolute;
+    top: 14;
+    left: 0;
+    border-radius: 10px;
+    width: 437px;
+    height: 51.62px;
+    padding: 0 16.56px; 
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .rectangle-insert-your-nam::placeholder  {
+    font-size: 16px; 
+    font-weight: 500; 
+    color: #b0b0b0;
+  }
+  .field {
+    position: absolute;
+    top: 360.74px;
+    left: 101px;
+    width: 437px;
+    height: 51.62px;
+    text-align: left;
+    color: #b0b0b0;
+    font-family: Inter;
+  }
+  .insert-your-password {
+    position: absolute;
+    top: 14px;
+    left: 16.56px;
+    font-weight: 500;
+    display: inline-block;
+    width: 301.95px;
+    height: 20.12px;
+  }
+  .field1 {
+    position: absolute;
+    top: 473.38px;
+    left: 101px;
+    width: 437px;
+    height: 51.62px;
+    text-align: left;
+    color: #b0b0b0;
+    font-family: Inter;
+  }
+  .rectangle-button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #5d64cb;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 206px;
+    height: 51px;
+  }
+  .sign-in1 {
+    position: absolute;
+    top: 4px;
+    left: 26px;
+    letter-spacing: 0.06em;
+    font-weight: 900;
+    display: inline-block;
+    width: 153.18px;
+    height: 34.4px;
+  }
+  .button {
+    cursor: pointer;
+    position: absolute;
+    top: 605px;
+    left: 219px;
+    width: 206px;
+    height: 51px;
+    font-size: 32px;
+    color: #fff;
+  }
+  .book-1-icon,
+  .sign-up-side,
+  .signin {
+    position: absolute;
+    top: 0;
+    height: 832px;
+  }
+  .signin {
+    left: calc(50% - 0px);
+    width: 640px;
+  }
+  .book-1-icon,
+  .sign-up-side {
+    left: 0;
+    width: 674px;
+  }
+  .book-1-icon {
+    left: 134px;
+    width: 206px;
+    height: 205px;
+    object-fit: cover;
+  }
+  .are-you-register {
+    position: absolute;
+    top: 247px;
+    left: 18px;
+    letter-spacing: 0.07em;
+    line-height: 33px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 439px;
+    height: 60px;
+  }
+  .create-your-account,
+  .rectangle-button1 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    position: absolute;
+  }
+  .rectangle-button1 {
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    width: 474px;
+    height: 51px;
+  }
+  .create-your-account {
+    background-color: transparent;
+    top: 7px;
+    left: 26.76px;
+    font-size: 30px;
+    letter-spacing: 0.06em;
+    font-weight: 900;
+    font-family: Nunito;
+    color: #5d64cb;
+    text-align: center;
+    display: inline-block;
+    width: 418.57px;
+    height: 34px;
+  }
+  .book-1-parent,
+  .button1,
+  .signup {
+    position: absolute;
+    top: 361px;
+    left: 0;
+    width: 474px;
+    height: 51px;
+  }
+  .book-1-parent,
+  .signup {
+    top: 210px;
+    left: 76px;
+    height: 412px;
+  }
+  .signup {
+    top: 0;
+    left: 0;
+    width: 674px;
+    height: 832px;
+    color: #fff;
+  }
+  .login {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 832px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 20px;
+    color: #696a78;
+    font-family: Nunito;
+  }
+  .error-message {
+    position: inherit;
+    bottom: -40px;
+    color: red ;
+    font-size: 15px;
+    padding: 10px;
+  }  

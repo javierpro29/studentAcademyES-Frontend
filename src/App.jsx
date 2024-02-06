@@ -8,6 +8,15 @@ function App() {
 
   return (
     <>
+    <Router>
+         <div className="App">
+               <Switch>
+                  <Route path="/login">
+                     <Login />
+                  </Route>
+               </Switch>
+         </div>
+      </Router>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
