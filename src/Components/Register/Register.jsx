@@ -1,32 +1,32 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import styles from "./Register.module.css";
-import Book from "../../assets/images/book.png";
-import Background from "../../assets/images/Background.png";
+import signupside from "../../assets/images/LoginImage.png";
 import { Link } from "react-router-dom";
-//import { env } from "../../config";
-//import { useHistory } from "react-router-dom";
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri'; 
 
 const Register = () => {
-   //const history = useHistory();
    const [formData, setFormData] = useState({
-      firstName: "",
-      lastName: "",
-      username: "",
+      fullName: "",
       email: "",
       password: "",
       confirmPassword: "",
+      userType: "",
    });
 
    const [formErrors, setFormErrors] = useState({});
 
    const [touchedFields, setTouchedFields] = useState({
-      firstName: false,
-      lastName: false,
-      username: false,
+      fullName: false,
       email: false,
       password: false,
       confirmPassword: false,
+      userType: false,
    });
+
+   const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad de la contraseña
+   const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+   };
 
    const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -47,144 +47,164 @@ const Register = () => {
          [name]: "", // Resetear el error si se está escribiendo en el campo
       });
    };
-   /*
-   const signUp = async ({ firstName, lastName, username, email, password }) => {
-      const apiKey = env.API_URL + "register";
-      try {
-         const result = await fetch(apiKey, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-               name: formData.firstName,
-               lastName: formData.lastName,
-               username: formData.username,
-               email: formData.email,
-               password: formData.password,
-            }),
-         });
-         const json = await result.json();
-         console.log(json);
 
-         setFormData({ firstName: "", lastName: "", username: "", email: "", password: "", confirmPassword: "" });
-      } catch (e) {
-         console.log(e);
-      }
-   };*/
+   const handleInputFocus = (e) => {
+      const { name } = e.target;
+      // Eliminar el borde rojo cuando el campo recibe el foco
+      document.getElementsByName(name)[0].style.borderBottomColor = "";
+      document.getElementsByName(name)[0].style.borderColor = "";
+   };
+
    const handleSubmit = (e) => {
       e.preventDefault();
       const errors = {};
-      let alertMessage = true;
-      // Validaciones
 
-      // Validación de campos requeridos (por ejemplo, nombre y apellido)
-      if (!formData.firstName.trim()) {
-         errors.firstName = "Por favor, ingresa tu nombre";
-         alertMessage = false;
+      // Validación de campos requeridos
+      if (!formData.fullName.trim()) {
+         errors.fullName = "Por favor, ingresa un nombre completo.";
+         alert("Por favor, ingresa un nombre completo.");
+         document.getElementsByName("fullName")[0].style.borderBottomColor = "red";
       }
-      if (!formData.lastName.trim()) {
-         errors.lastName = "Por favor, ingresa tu apellido";
-         alertMessage = false;
+      if (!formData.email.trim()) {
+         errors.email = "Por favor, ingresa tu email institucional.";
+         alert("Por favor, ingresa tu email institucional.");
+         document.getElementsByName("email")[0].style.borderBottomColor = "red";
       }
-      if (!formData.username.trim()) {
-         errors.username = "Por favor, ingresa tu nombre de usuario";
-         alertMessage = false;
+      if (!formData.password.trim()) {
+         errors.password = "Por favor, ingresa tu contraseña";
+         alert("Por favor, ingresa tu contraseña");
+         document.getElementsByName("password")[0].style.borderBottomColor = "red";
+      }
+      if (!formData.confirmPassword.trim()) {
+         errors.confirmPassword = "Please confirm your password";
+         alert("Por favor, ingresa tu contraseña de confirmación");
+         document.getElementsByName("confirmPassword")[0].style.borderBottomColor = "red";
+      }
+      if (!formData.userType.trim()) {
+         errors.userType = "Please select user type";
+         alert("Por favor, selecciona tu tipo de usuario.");
+         document.getElementsByName("userType")[0].style.borderColor = "red";
       }
 
-      // Validación del email (expresiones regulares)
+      // Validación del email (expresión regular)
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-         errors.email = "El email no es válido";
-         alertMessage = false;
+      if (!emailRegex.test(formData.email) && formData.email.trim()) {
+         errors.email = "Invalid email address";
+         alert("El email no es valido.");
+         document.getElementsByName("email")[0].style.borderBottomColor = "red";
       }
 
-      if (!alertMessage) alert("Existen campos vacíos");
+      // Validación de email institucional
+      if (!formData.email.endsWith("@itla.edu.do") && formData.email.trim()) {
+         errors.email = "Invalid email address";
+         alert("El email no es institucional.");
+         document.getElementsByName("email")[0].style.borderBottomColor = "red";
+      }
+
       // Validación de la contraseña
-      if (alertMessage && formData.password !== formData.confirmPassword) {
-         errors.confirmPassword = "Las contraseñas no coinciden";
-         alert("Las contraseñas no coinciden");
+      if (formData.password !== formData.confirmPassword && formData.password.trim() && formData.confirmPassword.trim()) {
+         errors.confirmPassword = "Passwords do not match";
+         alert("Las contraseñas no coindicen");
+         document.getElementsByName("confirmPassword")[0].style.borderBottomColor = "red";
       }
-      if (alertMessage && formData.password.length < 8) {
-         errors.password = "La contraseña debe tener al menos 8 caracteres";
-         alert("La contraseña debe tener al menos 8 caracteres");
+      if (formData.password.length < 8 && formData.password.trim()) {
+         errors.password = "Password must be at least 8 characters long";
+         alert("La contraseña debe tener mas de 8 caracteres.");
+         document.getElementsByName("password")[0].style.borderBottomColor = "red";
       }
 
-      // Otras validaciones necesarias...
-
+      if (formData.fullName.length < 4 && formData.fullName.trim()) {
+         errors.fullName = "Su nombre completo debe tener minimo 4 caracteres.";
+         alert("Su nombre completo debe tener minimo 4 caracteres.");
+         document.getElementsByName("fullName")[0].style.borderBottomColor = "red";
+      }
+      
       if (Object.keys(errors).length === 0) {
          // Envío del formulario si no hay errores
-         // Aquí se implementa una función para enviar los datos
-         signUp(formData);
-      } else {
-         setFormErrors(errors);
-
-         // Marcar todos los campos como tocados para que muestren el borde rojo
-         setTouchedFields({
-            firstName: true,
-            lastName: true,
-            username: true,
-            email: true,
-            password: true,
-            confirmPassword: true,
-         });
-      }
+         // Aquí se implementaría una función para enviar los datos
+         // signUp(formData);
+      } //else {
+         //alert("Please fill in all required fields");
+      //}
    };
+
    return (
       <div className={styles.registerContainer}>
-         <div className={styles.formContainer} style={{ backgroundImage: `url(${Background})` }}>
-            <h1 className={styles.signUp}>Sign Up</h1>
-            <h2 className={styles.createYourAccount}>Create Your Account</h2>
+         <div className={styles.formContainer}>
+            <h1 className={styles.title}>StudentAcademy</h1>
+            <h2 className={styles.subtitle}>Register now!</h2>
             <form onSubmit={handleSubmit}>
-               <div className={styles.fullnameRow}>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="firstName">Name</label>
-                     <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Ingresa tu nombre" className={touchedFields.firstName && formData.firstName.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
+               <div className={styles.form}>
+                  <input
+                     type="text"
+                     name="fullName"
+                     value={formData.fullName}
+                     onChange={handleInputChange}
+                     onFocus={handleInputFocus}
+                     placeholder="Full Name"
+                     className={styles.input}
+                  />
+
+                  <input
+                     type="email"
+                     name="email"
+                     value={formData.email}
+                     onChange={handleInputChange}
+                     onFocus={handleInputFocus}
+                     placeholder="Email Institutional"
+                     className={styles.input}
+                  />
+
+                  <div className={styles.passwordContainer}>
+                     <input 
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        placeholder="Password"
+                        className={styles.input}
+                     />
+                     <input
+                        type={showPassword ? "text" : "password"}
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        placeholder="Confirm Password"
+                        className={styles.input}
+                     />
+                     <div className={styles.passwordToggleIcon} onClick={togglePasswordVisibility}>
+                        {showPassword ? <RiEyeOffLine /> : <RiEyeLine />}
+                     </div>
                   </div>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="lastName">Last Name</label>
-                     <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Ingresa tu apellido" className={touchedFields.lastName && formData.lastName.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
-                  </div>
+
+                  <select
+                     name="userType"
+                     value={formData.userType}
+                     onChange={handleInputChange}
+                     onFocus={handleInputFocus}
+                     className={styles.select}
+                  >
+                     <option value="">User Type</option>
+                     <option value="student">Student</option>
+                     <option value="teacher">Teacher</option>
+                     <option value="admin">Admin</option>
+                  </select>
                </div>
-               <div className={styles.formRow}>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="username">Username</label>
-                     <input type="text" id="username" name="username" value={formData.username} onChange={handleInputChange} placeholder="Ingresa tu nombre de usuario" className={touchedFields.username && formData.username.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
-                  </div>
-               </div>
-               <div className={styles.formRow}>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="email">Email</label>
-                     <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Ingresa tu correo electrónico" className={touchedFields.email && formData.email.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
-                  </div>
-               </div>
-               <div className={styles.formRow}>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="password">Password</label>
-                     <input type="password" id="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Ingresa tu contraseña" className={touchedFields.password && formData.password.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
-                  </div>
-               </div>
-               <div className={styles.formRow}>
-                  <div className={styles.labelinput}>
-                     <label htmlFor="confirmPassword">Confirm Password</label>
-                     <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} placeholder="Confirma tu contraseña" className={touchedFields.confirmPassword && formData.confirmPassword.trim() === "" ? styles.inputFieldEmpty : styles.inputField} />
-                  </div>
-               </div>
-               <button className={styles.btnRegister} type="submit">
-                  SIGN UP
+               <button type="submit" className={styles.loginButton}>
+                  Sign Up
                </button>
             </form>
-         </div>
-         <div className={styles.rightSection}>
-            <div className={styles.iconText}>
-               <Link to="/">
-                  <img src={Book} style={{ marginBottom: "25px" }} alt="Imagen para el inicio de sesion" />
-               </Link>
-               <p>Are you Already have an Account?</p>
+            <div className={styles.signupMessage}>
+               Already have an account? <Link to="/login" className={styles.signupLink}>Sign in</Link>
             </div>
-            <Link to="login" className={styles.btnLogin}>
-               SIGN IN
-            </Link>
+         </div>
+         <div className={styles.imageContainer}>
+            <img src={signupside} alt="Background" className={styles.image} />
          </div>
       </div>
    );
 };
+
 export default Register;

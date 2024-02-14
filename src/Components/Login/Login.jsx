@@ -50,7 +50,7 @@ const Login = () => {
             <img src={signupside} alt="Sign Up Side" className={styles.image} />
          </div>
          <div className={styles.formContainer}>
-            <h1 className={styles.title}>StudentAcademy.es</h1>
+            <h1 className={styles.title}>StudentAcademy</h1>
             <h2 className={styles.subtitle}>Welcome, login to your account!</h2>
             <div className={styles.form}>
                <input className={styles.input} type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
@@ -62,9 +62,9 @@ const Login = () => {
                   <label htmlFor="rememberMe"className={styles.checkbox}>Remember me </label>
                   <span className={styles.forgotPassword}>Forgot password?</span>
                </div>
-               <button className={styles.loginButton} onClick={handleLogin}>Login</button>
+               <button className={styles.loginButton} onClick={handleLogin}>Login now</button>
                <div className={styles.signupMessage}>
-                  Don’t have an account yet? <Link to="/signup" className={styles.signupLink}>Sign up!</Link>
+                  Don’t have an account yet? <Link to="/register" className={styles.signupLink}>Sign up!</Link>
                </div>
             </div>
          </div>

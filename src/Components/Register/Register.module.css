@@ -1,203 +1,120 @@
-/* Estilos para el formulario de registro */
-body {
-    margin: 0;
-    padding: 0;
-  }
-
-* {
-    font-family: var(--font-nunito);
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
-h1,h2{
-    color: white;
-}
-
-/* Estilos para el formulario de registro */
 .registerContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    overflow: hidden; /*Para evitar el desbordamiento*/
-    height: 100vh;/*Para fijar el alto de la pagina a un valor default*/
+  display: flex;
 }
 
 .formContainer {
-    width: 50%;/* Ancho del formulario */
-    padding: 85px;/* Espaciado interno del formulario */
-    background-image: url('../../assets/images/Background.png');
-    background-position: -100px 0; /* Para escalar un poco mas la parte izquierda hacia la derecha */
-    background-size: cover; /* Ajusta el tamaño de la imagen */
-    background-position: center; /* Posiciona la imagen en el centro */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
 }
 
-.signUp{
-    font-weight: 800;
-    font-size: 45px;
+.title {
+  font-size: 4.6rem;
+  font-weight: bold;
+  color: #fff;
 }
 
-.createYourAccount{
-    font-weight: 600;
-    font-size: 20px;
-    color: #fff;
-}
-/* Estilos específicos para los campos de Nombre y Apellido */
-.fullnameRow {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    margin-top: 15px;
+.subtitle {
+  padding: 0;
+  margin: 0;
+  margin-top: -50px;
+  font-size: 22px;
 }
 
-.fullnameRow .labelinput {
-    width: 48%;
+.form {
+  text-align: center;
+  width: 100%;
+  /* Hacemos que el formulario ocupe todo el ancho del contenedor */
+  max-width: 400px;
+  /* Establecemos un ancho máximo para el formulario */
 }
 
-.fullnameRow .labelinput input {
-    width: 69%;
-    color: white;
-    height: 25px;
-}
-/* Estilos específicos para los cada fila del formulario */
-.formRow {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.labelinput {
-    display: flex;
-    flex-direction: column;/* Volvemos a la disposición en columna */
-    width: 85%;/* Ajusta el ancho para ambos campos */
+.input {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  width: calc(100% - 30px);
+  /* Cambiamos el ancho para considerar el borde */
+  padding: 15px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+  transition: border-bottom-color 0.3s;
 }
 
-.labelinput label {
-    margin-bottom: 5px;
-    align-self: flex-start;
-    color: white;
+/* Estilo para el select */
+.select {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: 2px dotted white;
+  background-color: #242424;
+  color: #fff;
+  transition: border-bottom-color 0.3s;
+  position: relative; /* Agregamos posición relativa */
 }
 
-input {
-    color: white;
-    padding: 8px;
-    border-radius: 8px; /* Bordes redondos */
-    border: 1px solid var(--color-darkslateblue);
-    margin-top: 5px;
-    width: 100%;
-    height: 25px;
-    border-radius: var(--br-3xs);
-    background-color: var(--color-darkslateblue);
+.input:focus {
+  outline: none;
+  border-bottom-color: #1491F4;
 }
 
-input::placeholder {
-    color: var(--color-darkgray);
-    font-family: var(--font-inter);
+
+.passwordContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Estilos específicos para los botones */
-.button {
-    font-size: var(--font-size-13xl);
-    color: var(--color-white);
+.passwordContainer .showPasswordIcon {
+  cursor: pointer;
 }
 
-.rectangleButton {
-    border-radius: var(--br-5xs);
-    background-color: var(--color-slateblue);
-    width: 206px;
-    height: 51px;
-  }
 
-.btnRegister {
-    font-size: var(--font-size-5xl);
-    color: var(--color-slateblue);
-    border-radius: var(--br-5xs);
-    background-color: var(--color-white);
-    width: 153.2px;
-    height: 34.4px;
-    border: none;
-    letter-spacing: 0.06em;
-    font-weight: 900;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.loginButton {
+  width: 100%;
+  padding: 15px;
+  background-color: #1491F4;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.btnLogin {
-    text-decoration: none;
-    font-size: var(--font-size-5xl);
-    color: var(--color-white);
-    border-radius: var(--br-5xs);
-    background-color: var(--color-slateblue);
-    width: 153.2px;
-    height: 34.4px;
-    border: none;
-    letter-spacing: 0.06em;
-    font-weight: 900;
-    cursor: pointer;
-    margin-top: 10px;
+.loginButton:hover{
+  background-color: #117fd8;
 }
 
-/* Estilos para la sección derecha */
-.rightSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;/* Alinea los elementos al centro del contenedor */
-    align-items: center;/* Centra los elementos verticalmente */
-    width: 50%;/* Ancho de la parte derecha */
-    background-color: white;
-    padding: 20px;/* Espaciado interno */
+.signupMessage {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 0.8rem;
 }
 
-.iconText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+.signupLink {
+  color: #1491F4;
+  text-decoration: none;
 }
 
-i {
-    font-size: 50px;
+.signupLink:hover {
+  color: #117fd8;
+  text-decoration: none;
 }
 
-p {
-    margin-top: 5px;
-    font-weight: 600;
-    font-size: var(--font-size-xl);
-    color: var(--color-slateblue);
-}
-p a {
-    font-size: var(--font-size-xl);
-    text-decoration: none;
-    color: white;
-
+.imageContainer {
+  flex: 1;
+  width: 50%;
 }
 
-.error{
-    margin-top: -5%;
-    font-size: 15px;
-    color: red;
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
-
-.error-message {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    margin-top: 10px;
-  }
-
-/* Estilos para validaciones */
-  .InputField {
-    border: none;
-    border-bottom: 1px solid red;
-  }
-  
-.inputFieldEmpty {
-    border: none;
-    border-bottom: 1px solid red;
-  }

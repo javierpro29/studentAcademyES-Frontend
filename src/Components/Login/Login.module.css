@@ -40,24 +40,28 @@
 
 .form {
   margin-top: 40px;
-  width: 300px;
   text-align: center;
   width: 100%; /* Hacemos que el formulario ocupe todo el ancho del contenedor */
   max-width: 400px; /* Establecemos un ancho máximo para el formulario */
 }
 
 .input {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Reducimos el tamaño de la fuente para pantallas pequeñas */
   width: 100%;
   margin-bottom: 20px;
-  padding: 15px 0; /* Ajustamos el padding para que el bottom tenga la altura deseada */
+  padding: 1rem 0; /* Ajustamos el padding para que el bottom tenga la altura deseada */
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #ccc;
   background-color: transparent;
   color: #fff;
+  transition: border-bottom-color 0.3s;
 }
 
+.input:focus {
+  outline: none;
+  border-bottom-color: #1491F4;
+}
 
 .error {
   color: red;
@@ -81,19 +85,28 @@
 }
 
 .forgotPassword {
-  color: #5d64cb;
+  color: #1491F4;
+  cursor: pointer;
+}
+
+.forgotPassword:hover {
+  color: #117fd8;
   cursor: pointer;
 }
 
 .loginButton {
   width: 100%;
   padding: 15px;
-  background-color: #5d64cb;
+  background-color: #1491F4;
   border: none;
   border-radius: 5px;
   color: #fff;
   font-size: 1.4rem;
   cursor: pointer;
+}
+
+.loginButton:hover{
+  background-color: #117fd8;
 }
 
 .signupMessage {
@@ -103,8 +116,11 @@
 }
 
 .signupLink {
-  color: #5d64cb;
+  color: #1491F4;
   text-decoration: none;
+}
+.signupLink:hover {
+  color: #117fd8;
 }
 
 /* Media queries para hacerlo responsive */
@@ -160,11 +176,6 @@
     margin-top: 2rem;
     width: 100%;
     max-width: 400px;
-  }
-  
-  .input {
-    font-size: 1rem; /* Reducimos el tamaño de la fuente para pantallas pequeñas */
-    padding: 1rem 0; /* Ajustamos el padding */
   }
   
   .error {
