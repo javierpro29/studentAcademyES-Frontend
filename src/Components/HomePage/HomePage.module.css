@@ -1,0 +1,340 @@
+/* Estilos Generales*/
+
+.homePage {
+    display: flex;
+    height: 100vh;
+}
+
+/* Estilos para la Seccion Izquierda*/
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 300px;
+    color: #fff;
+}
+
+.leftSection h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.leftSection .navButtons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.leftSection .navButton {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.leftSection .navButton svg {
+    margin-right: 10px;
+}
+
+.leftSection .navButton:hover {
+    color: #117fd8;
+}
+
+.createTeamButton{
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.createTeamButton:hover{
+    background-color: #117fd8;
+  }
+  
+.leftSection .profileInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.leftSection .profileInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.leftSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -12px;
+    margin-left: -50px;
+}
+
+.leftSection .profileInfo .profileHandle {
+    color: #888;
+    margin-left: -50px;
+}
+
+.leftSection .settingsIcon {
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Estilos para la Seccion Central*/
+
+.centerSection {
+    flex-grow: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+.centerSection h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.centerSection .events {
+    display: flex;
+    font-size: 21px;
+    margin-bottom: 20px;
+    justify-content: end;
+}
+
+.centerSection .eventsIcon{
+    font-size: 25px;
+}
+
+.centerSection .buttonsRow {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    width: 100%;
+}
+
+.centerSection .currentButton,
+.centerSection .completedButton {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: -10px;
+    width: 200px;
+}
+
+.centerSection .currentButton:focus,
+.centerSection .completedButton:focus {
+    outline: none;
+}
+
+.centerSection .currentButton:hover,
+.centerSection .completedButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .currentButton::after,
+.centerSection .completedButton::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #1491F4;
+    transition: width 0.3s ease;
+}
+
+.centerSection .currentButton:focus::after,
+.centerSection .completedButton:focus::after {
+    width: 100%;
+}
+
+.centerSection .publications {
+    /* Estilos para las publicaciones */
+}
+
+.centerSection .publication {
+    margin-bottom: 20px;
+}
+
+.centerSection .publication p {
+    margin-top: 10px;
+}
+
+.centerSection .profileInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.centerSection .profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.centerSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.centerSection .profileInfo .profileHandle {
+    color: #888;
+}
+
+.centerSection .postTime {
+    margin-left: auto;
+    color: #888;
+    font-size: 12px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    font-size: 40px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+.sectionSeparator{
+    margin-bottom: 30px;
+}
+
+/* Estilos para la Seccion Derecha*/
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    color: #fff;
+    overflow-y: auto;
+}
+
+.rightSection .searchBox {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+    margin-bottom: 20px;
+    border:0;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    transition: border-bottom-color 0.3s;
+}
+.rightSection .searchBox:focus {
+    outline: none;
+    border-bottom-color: #1491F4;
+  }
+
+.rightSection .teamRecommendations,
+.rightSection .hashtagsRecommendations {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.rightSection .sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.rightSection .teamRecommendations .team,
+.rightSection .hashtagsRecommendations .hashtag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.rightSection .teamRecommendations .team img,
+.rightSection .hashtagsRecommendations .hashtag img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.rightSection .teamRecommendations .team .name,
+.rightSection .hashtagsRecommendations .hashtag .name {
+    font-weight: bold;
+}
+
+.rightSection .teamRecommendations .team .handle,
+.rightSection .hashtagsRecommendations .hashtag .handle {
+    font-size: 12px;
+    color: #888;
+}
+
+.rightSection .profileInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.rightSection .profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.rightSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.rightSection .profileInfo .profileHandle {
+    color: #888;
+}
+
+.rightSection .buttonMore {
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rightSection .buttonMore:hover {
+    background-color: #117fd8;
+}
+
+.rightSection .showMore {
+    color: #1491F4;
+    cursor: pointer;
+}
+
+.rightSection .hashtagsDetails{
+    border-bottom: 1px solid #888;
+    margin-bottom: 10px;
+}
+
+.rightSection .hashtagsDetails .hashtags {
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.rightSection .hashtagsDetails .teams {
+    color: #888;
+}
+

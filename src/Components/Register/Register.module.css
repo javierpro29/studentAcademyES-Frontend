@@ -38,7 +38,6 @@
   margin-bottom: 20px;
   font-size: 1rem;
   width: calc(100% - 30px);
-  /* Cambiamos el ancho para considerar el borde */
   padding: 15px;
   border: none;
   background-color: transparent;
