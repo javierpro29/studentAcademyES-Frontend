@@ -41,7 +41,7 @@
   padding: 15px;
   border: none;
   background-color: transparent;
-  color: #fff;
+  color: #000000;
   border-bottom: 1px solid #ccc;
   transition: border-bottom-color 0.3s;
 }
@@ -56,7 +56,8 @@
   background-color: #242424;
   color: #fff;
   transition: border-bottom-color 0.3s;
-  position: relative; /* Agregamos posición relativa */
+  position: relative;
+  /* Agregamos posición relativa */
 }
 
 .input:focus {
@@ -87,7 +88,7 @@
   cursor: pointer;
 }
 
-.loginButton:hover{
+.loginButton:hover {
   background-color: #117fd8;
 }
 
