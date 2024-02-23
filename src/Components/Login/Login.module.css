@@ -1,5 +1,6 @@
 .login {
   display: flex;
+  max-height: 100vh;
 }
 
 .imageContainer {

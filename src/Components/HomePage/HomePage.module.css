@@ -1,9 +1,24 @@
 /* Estilos Generales*/
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    /* Fondo de la sección */
+}
+
 .homePage {
     display: flex;
-    height: 100vh;
+    justify-content: center;
+    /* Centro el contenido horizontalmente */
+    align-items: flex-start;
+    /* Alínea el contenido arriba */
+    min-height: 100vh;
+    /* Ajustar la altura mínima de la página */
 }
+
 
 /* Estilos para la Seccion Izquierda*/
 
@@ -13,12 +28,13 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 20px;
-    width: 300px;
     color: #fff;
+    position: sticky; /* Fija la posición del elemento */
+    top: 0; /* Ajusta la posición superior */
 }
 
 .leftSection h1 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 
@@ -32,10 +48,10 @@
 .leftSection .navButton {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     margin-bottom: 30px;
-    color: #fff;
+    color: #e0e0e0;
 }
 
 .leftSection .navButton svg {
@@ -46,7 +62,7 @@
     color: #117fd8;
 }
 
-.createTeamButton{
+.createTeamButton {
     background-color: #1491F4;
     color: rgb(43, 43, 43);
     border: none;
@@ -56,13 +72,14 @@
     cursor: pointer;
 }
 
-.createTeamButton:hover{
+.createTeamButton:hover {
     background-color: #117fd8;
-  }
-  
+}
+
 .leftSection .profileInfo {
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
@@ -75,13 +92,13 @@
 
 .leftSection .profileInfo .profileName {
     font-weight: bold;
-    margin-bottom: -12px;
-    margin-left: -50px;
+    margin-bottom: -5px;
 }
 
 .leftSection .profileInfo .profileHandle {
     color: #888;
-    margin-left: -50px;
+    margin-top: 0;
+    /* Elimina el margen superior */
 }
 
 .leftSection .settingsIcon {
@@ -98,6 +115,11 @@
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
     overflow-y: auto;
+    max-width: 700px;
+    /* Establece un ancho máximo */
+    width: 100%;
+    /* Asegura que ocupe todo el ancho disponible */
+    color: #fff;
 }
 
 .centerSection h2 {
@@ -112,7 +134,7 @@
     justify-content: end;
 }
 
-.centerSection .eventsIcon{
+.centerSection .eventsIcon {
     font-size: 25px;
 }
 
@@ -160,14 +182,18 @@
 }
 
 .centerSection .publications {
-    /* Estilos para las publicaciones */
+    overflow: hidden;/* Oculta el contenido que excede la altura máxima */
 }
 
 .centerSection .publication {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
 .centerSection .publication p {
+    color: #fff;
     margin-top: 10px;
 }
 
@@ -178,6 +204,9 @@
 }
 
 .centerSection .profileImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -186,11 +215,12 @@
 
 .centerSection .profileInfo .profileName {
     font-weight: bold;
-    margin-bottom: -12px;
+    margin-bottom: -5px;
 }
 
 .centerSection .profileInfo .profileHandle {
     color: #888;
+    margin-top: 0;
 }
 
 .centerSection .postTime {
@@ -201,13 +231,14 @@
 
 .image {
     width: 100%;
+    max-height: 450px;
     height: auto;
     font-size: 40px;
     object-fit: cover;
     border-radius: 15px;
-  }
+}
 
-.sectionSeparator{
+.sectionSeparator {
     margin-bottom: 30px;
 }
 
@@ -220,24 +251,39 @@
     padding: 20px;
     width: 300px;
     color: #fff;
-    overflow-y: auto;
+}
+
+.rightSection .searchBoxContainer {
+    position: relative;
+    width: 100%;
 }
 
 .rightSection .searchBox {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     font-size: 16px;
     background-color: transparent;
     color: #fff;
     margin-bottom: 20px;
-    border:0;
+    border: 0;
     border-bottom: 1px solid rgb(167, 167, 167);
     transition: border-bottom-color 0.3s;
 }
+
 .rightSection .searchBox:focus {
     outline: none;
     border-bottom-color: #1491F4;
-  }
+}
+
+.rightSection .searchIcon {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    top: 23px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
 .rightSection .teamRecommendations,
 .rightSection .hashtagsRecommendations {
@@ -295,7 +341,6 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
 .rightSection .profileInfo .profileName {
@@ -324,7 +369,7 @@
     cursor: pointer;
 }
 
-.rightSection .hashtagsDetails{
+.rightSection .hashtagsDetails {
     border-bottom: 1px solid #888;
     margin-bottom: 10px;
 }
@@ -337,4 +382,3 @@
 .rightSection .hashtagsDetails .teams {
     color: #888;
 }
-

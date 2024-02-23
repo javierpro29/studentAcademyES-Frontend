@@ -1,12 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Esto evitará que aparezcan barras de desplazamiento */
+  /* overflow: hidden; */
 }
 
 #root {
   width: 100vw; /* Esto hará que el contenedor ocupe toda la anchura de la ventana del navegador */
   height: 100vh; /* Esto hará que el contenedor ocupe toda la altura de la ventana del navegador */
+  overflow-y: auto;
 }
 
 .logo {

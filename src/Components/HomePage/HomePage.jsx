@@ -1,5 +1,5 @@
 import React from "react";
-import { RiHomeLine, RiUserSharedLine, RiMessage2Line, RiUserLine, RiSettingsLine } from 'react-icons/ri';
+import { RiHomeLine, RiUserSharedLine, RiMessage2Line, RiUserLine, RiSettings5Fill, RiNotification3Line, RiSearchEyeLine } from 'react-icons/ri';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import style from "./HomePage.module.css";
 import signupside from "../../assets/images/LoginImage.png";
@@ -9,25 +9,26 @@ const HomePage = () => {
     return (
         <div className={style.homePage}>
             <div className={style.leftSection}>
-                <h1>StudentAcademy</h1>
+                <h1>StudentAcademy.es</h1>
                 <div className={style.navButtons}>
                     <div className={style.navButton}><RiHomeLine /> Home</div>
                     <div className={style.navButton}><RiUserSharedLine /> My TEAMS</div>
                     <div className={style.navButton}><RiMessage2Line /> Teamvites</div>
+                    <div className={style.navButton}><RiNotification3Line /> Notifications</div>
                     <div className={style.navButton}><RiUserLine /> Profile</div>
                 </div>
                 <button className={style.createTeamButton}>Create a Team</button>
                 <div className={style.profileInfo}>
-                    <img src={profile} alt="Profile" />
+                <img src={profile} alt="Profile" />
                     <div>
                         <p className={style.profileName}>Dariel Restituyo</p>
                         <p className={style.profileHandle}>@restituyo</p>
                     </div>
-                    <RiSettingsLine className={style.settingsIcon} />
+                    <RiSettings5Fill className={style.settingsIcon} />
                 </div>
             </div>
             <div className={style.centerSection}>
-                <h2>Welcome, John Doe</h2>
+                <h2>Welcome, Dariel Restituyo</h2>
                 <span className={style.events}><FaRegCalendarAlt className={style.eventsIcon} /> Events</span>
                 <div className={style.buttonsRow}>
                     <button className={style.currentButton}>Current</button>
@@ -53,7 +54,10 @@ const HomePage = () => {
                 {/* Más publicaciones */}
             </div>
             <div className={style.rightSection}>
-                <input type="text" className={style.searchBox} placeholder="Search Teamder" />
+                <div className={style.searchBoxContainer}>
+                    <input type="text" className={style.searchBox} placeholder="Search Teamder" />
+                    <RiSearchEyeLine className={style.searchIcon} />
+                </div>
                 <div className={style.teamRecommendations}>
                     <h2 className={style.sectionTitle}>Teams for you</h2>
                     {/* Equipo recomendado 1 */}
