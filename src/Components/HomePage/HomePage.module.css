@@ -27,6 +27,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 300px;
     padding: 20px;
     color: #fff;
     position: sticky; /* Fija la posición del elemento */
