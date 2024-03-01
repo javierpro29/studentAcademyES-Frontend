@@ -187,7 +187,7 @@ const Register = () => {
               value={formData.username}
               onChange={handleInputChange}
               onFocus={handleInputFocus}
-              placeholder="Full Name"
+              placeholder="Username"
               className={styles.input}
             />
             {formErrors.username && (

@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className={style.homePage}>
             <div className={style.leftSection}>
-                <h1>StudentAcademy.es</h1>
+                <h1>StudentAcademy</h1>
                 <div className={style.navButtons}>
                     <div className={style.navButton}><RiHomeLine /> Home</div>
                     <div className={style.navButton}><RiUserSharedLine /> My TEAMS</div>
