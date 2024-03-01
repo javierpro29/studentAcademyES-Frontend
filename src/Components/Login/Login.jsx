@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import styles from "./Login.module.css";
 import signupside from "../../assets/images/LoginImage.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LOGIN_MUTATION = gql`
   mutation Login($usernameOrEmail: String!, $password: String!) {
@@ -13,6 +13,7 @@ const LOGIN_MUTATION = gql`
 `;
 
 const Login = () => {
+  const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -23,12 +24,12 @@ const Login = () => {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setEmailError(""); // Limpiar mensaje de error al cambiar el email
+    setEmailError("");
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setPasswordError(""); // Limpiar mensaje de error al cambiar la contraseña
+    setPasswordError("");
   };
 
   const handleRememberMeChange = () => {
@@ -36,7 +37,6 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    // Validación de campos
     if (!email.trim()) {
       setEmailError("Por favor, ingresa tu dirección de correo electrónico.");
       return;
@@ -47,7 +47,6 @@ const Login = () => {
       return;
     }
 
-    // Validación de email institucional
     if (!email.endsWith("@itla.edu.do")) {
       setEmailError("Por favor, utiliza un correo electrónico institucional.");
       return;
@@ -62,12 +61,12 @@ const Login = () => {
       });
 
       const token = data.login.token;
-
-      // Aquí puedes manejar el token según tus necesidades
       console.log("Login successful! Token:", token);
+
+      // Redirige a la página "/home"
+      navigate("/home");
     } catch (error) {
       console.error("Error en la autenticación:", error.message);
-      // Aquí puedes manejar el error según tus necesidades
     }
   };
 

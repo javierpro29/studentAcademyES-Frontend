@@ -5,7 +5,8 @@
 
 .imageContainer {
   flex: 1;
-  background-color: #121212; /* Color oscuro */
+  background-color: #121212;
+  /* Color oscuro */
 }
 
 .image {
@@ -21,13 +22,16 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%; /* Ajustamos el ancho al 100% */
+  width: 100%;
+  /* Ajustamos el ancho al 100% */
   margin: auto;
-  padding: 0 2rem; /* Ajustamos el padding horizontal */
+  padding: 0 2rem;
+  /* Ajustamos el padding horizontal */
 }
 
 .title {
-  font-size: 4.5rem; /* Ajusta el tamaño de la fuente del título */
+  font-size: 4.5rem;
+  /* Ajusta el tamaño de la fuente del título */
   font-weight: bold;
   color: #fff;
 }
@@ -42,20 +46,24 @@
 .form {
   margin-top: 40px;
   text-align: center;
-  width: 100%; /* Hacemos que el formulario ocupe todo el ancho del contenedor */
-  max-width: 400px; /* Establecemos un ancho máximo para el formulario */
+  width: 100%;
+  /* Hacemos que el formulario ocupe todo el ancho del contenedor */
+  max-width: 400px;
+  /* Establecemos un ancho máximo para el formulario */
 }
 
 .input {
-  font-size: 1rem; /* Reducimos el tamaño de la fuente para pantallas pequeñas */
+  font-size: 1rem;
+  /* Reducimos el tamaño de la fuente para pantallas pequeñas */
   width: 100%;
   margin-bottom: 20px;
-  padding: 1rem 0; /* Ajustamos el padding para que el bottom tenga la altura deseada */
+  padding: 1rem 0;
+  /* Ajustamos el padding para que el bottom tenga la altura deseada */
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #ccc;
   background-color: transparent;
-  color: #000000;
+  color: #ffffff;
   transition: border-bottom-color 0.3s;
 }
 
@@ -63,6 +71,8 @@
   outline: none;
   border-bottom-color: #1491F4;
 }
+
+
 
 .error {
   color: red;
@@ -106,7 +116,7 @@
   cursor: pointer;
 }
 
-.loginButton:hover{
+.loginButton:hover {
   background-color: #117fd8;
 }
 
@@ -120,15 +130,17 @@
   color: #1491F4;
   text-decoration: none;
 }
+
 .signupLink:hover {
   color: #117fd8;
 }
 
 /* Media queries para hacerlo responsive */
 @media (max-width: 768px) {
-  .body{
-    overflow:visible;
+  .body {
+    overflow: visible;
   }
+
   .login {
     display: flex;
     flex-direction: column;
@@ -136,23 +148,27 @@
 
   .imageContainer {
     flex: 1;
-    display: flex; /* Hacemos que el contenedor sea un flexbox */
-    align-items: center; /* Centramos verticalmente */
-    justify-content: center; /* Centramos horizontalmente */
-    width: 50%; /* Ajustamos el ancho del contenedor al 60% del padre */
+    display: flex;
+    /* Hacemos que el contenedor sea un flexbox */
+    align-items: center;
+    /* Centramos verticalmente */
+    justify-content: center;
+    /* Centramos horizontalmente */
+    width: 50%;
+    /* Ajustamos el ancho del contenedor al 60% del padre */
     height: 50%;
     text-align: center;
     border-radius: 10px;
     border: 5px double black;
     margin-left: 28%;
   }
-  
+
   .image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    
+
   }
 
   .formContainer {
@@ -162,42 +178,51 @@
     justify-content: center;
     text-align: center;
     width: 100%;
-    padding: 2rem; /* Ajustamos el padding */
+    padding: 2rem;
+    /* Ajustamos el padding */
   }
 
   .title {
-    font-size: 3rem; /* Reducimos el tamaño del título para pantallas pequeñas */
+    font-size: 3rem;
+    /* Reducimos el tamaño del título para pantallas pequeñas */
   }
-  
+
   .subtitle {
-    font-size: 1.5rem; /* Reducimos el tamaño del subtítulo para pantallas pequeñas */
+    font-size: 1.5rem;
+    /* Reducimos el tamaño del subtítulo para pantallas pequeñas */
   }
-  
+
   .form {
     margin-top: 2rem;
     width: 100%;
     max-width: 400px;
   }
-  
+
   .error {
-    margin-bottom: 1rem; /* Ajustamos el margen inferior del mensaje de error */
+    margin-bottom: 1rem;
+    /* Ajustamos el margen inferior del mensaje de error */
   }
-  
+
   .rememberMeContainer {
-    margin-bottom: 2rem; /* Ajustamos el margen inferior para pantallas pequeñas */
+    margin-bottom: 2rem;
+    /* Ajustamos el margen inferior para pantallas pequeñas */
   }
-  
+
   .rememberMeContainer input[type="checkbox"] {
-    margin-right: 0; /* Eliminamos el margen derecho para pantallas pequeñas */
+    margin-right: 0;
+    /* Eliminamos el margen derecho para pantallas pequeñas */
   }
-  
+
   .loginButton {
-    padding: 1rem; /* Ajustamos el padding del botón */
-    font-size: 1.2rem; /* Reducimos el tamaño de la fuente para pantallas pequeñas */
+    padding: 1rem;
+    /* Ajustamos el padding del botón */
+    font-size: 1.2rem;
+    /* Reducimos el tamaño de la fuente para pantallas pequeñas */
   }
-  
+
   .signupMessage {
-    margin-top: 1rem; /* Ajustamos el margen superior del mensaje de registro */
+    margin-top: 1rem;
+    /* Ajustamos el margen superior del mensaje de registro */
   }
-  
+
 }
