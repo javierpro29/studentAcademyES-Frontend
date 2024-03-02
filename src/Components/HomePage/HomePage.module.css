@@ -89,17 +89,18 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: -65px;
 }
 
 .leftSection .profileInfo .profileName {
     font-weight: bold;
     margin-bottom: -5px;
+    margin-left: 0;
 }
 
 .leftSection .profileInfo .profileHandle {
     color: #888;
-    margin-top: 0;
-    /* Elimina el margen superior */
+    margin-top: 0;/* Elimina el margen superior */
 }
 
 .leftSection .settingsIcon {
@@ -121,6 +122,66 @@ body {
     width: 100%;
     /* Asegura que ocupe todo el ancho disponible */
     color: #fff;
+}
+
+.centerSection .topSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.centerSection .topprofileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.centerSection .postInput {
+    width: calc(100% - 150px);
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+
+.centerSection .postInput::placeholder {
+    color: #ccc;
+}
+
+.centerSection .postButton {
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    padding: 7px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.centerSection .postButton:hover {
+    background-color: #0e6ebd;
+}
+
+
+.centerSection .postIcons {
+    margin-left: 25px;
+    margin-top: 10px; /* Ajuste para separar los iconos del input */
+}
+
+.centerSection .iconButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.centerSection .iconButton:hover {
+    color: #1491F4;
 }
 
 .centerSection h2 {
@@ -208,8 +269,8 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -237,6 +298,33 @@ body {
     font-size: 40px;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.centerSection .interactionButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.centerSection .interactionButton {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.centerSection .interactionButton svg {
+    margin-right: 5px;
+}
+
+.centerSection .interactionButton:hover {
+    color: #1491F4;
 }
 
 .sectionSeparator {
@@ -346,11 +434,12 @@ body {
 
 .rightSection .profileInfo .profileName {
     font-weight: bold;
-    margin-bottom: -12px;
+    margin-bottom: -5px;
 }
 
 .rightSection .profileInfo .profileHandle {
     color: #888;
+    margin-top: 0;
 }
 
 .rightSection .buttonMore {

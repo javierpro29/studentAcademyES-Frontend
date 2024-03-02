@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from "./Register.module.css";
 import signupside from "../../assets/images/LoginImage.png";
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {RiEyeLine, RiEyeOffLine} from "react-icons/ri";
 import {useMutation, gql} from "@apollo/client";
 
@@ -25,6 +25,7 @@ const SAVE_USER_MUTATION = gql`
 `;
 
 const Register = () => {
+  const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
 	const [formData, setFormData] = useState({
 		username: "",
 		firstName: "",
@@ -87,43 +88,52 @@ const Register = () => {
 		// Validaciones
 		if (!formData.username.trim()) {
 			errors.username = "Por favor, ingresa un nombre de usuario.";
+      alert("Por favor, ingresa un nombre de usuario.");
 			document.getElementsByName("username")[0].style.borderBottomColor = "red";
 		}
 		if (!formData.firstName.trim()) {
 			errors.firstName = "Por favor, ingresa tu primer nombre.";
+      alert("Por favor, ingresa tu primer nombre.");
 			document.getElementsByName("firstName")[0].style.borderBottomColor =
 				"red";
 		}
 		if (!formData.lastName.trim()) {
 			errors.lastName = "Por favor, ingresa tu apellido.";
+      alert("Por favor, ingresa tu apellido.");
 			document.getElementsByName("lastName")[0].style.borderBottomColor = "red";
 		}
 		if (!formData.email.trim()) {
 			errors.email = "Por favor, ingresa tu email institucional.";
+      alert("Por favor, ingresa tu email institucional.");
 			document.getElementsByName("email")[0].style.borderBottomColor = "red";
 		}
 		if (!formData.password.trim()) {
 			errors.password = "Por favor, ingresa tu contraseña";
+      alert("Por favor, ingresa tu contraseña");
 			document.getElementsByName("password")[0].style.borderBottomColor = "red";
 		}
 		if (!formData.confirmPassword.trim()) {
 			errors.confirmPassword = "Por favor, confirma tu contraseña";
+      alert("Por favor, confirma tu contraseña");
 			document.getElementsByName("confirmPassword")[0].style.borderBottomColor =
 				"red";
 		}
-		if (!formData.rolname.trim()) {
+		if (!formData.rolname.trim() || formData.rolname.startsWith("User")) {
 			errors.rolname = "Por favor, selecciona tu rol.";
+      alert("Por favor, selecciona tu rol.");
 			document.getElementsByName("rolname")[0].style.borderColor = "red";
 		}
 
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (!emailRegex.test(formData.email) && formData.email.trim()) {
 			errors.email = "Dirección de correo electrónico no válida";
+      alert("Dirección de correo electrónico no válida");
 			document.getElementsByName("email")[0].style.borderBottomColor = "red";
 		}
 
 		if (!formData.email.endsWith("@itla.edu.do") && formData.email.trim()) {
 			errors.email = "Utiliza un correo electrónico institucional.";
+      alert("Utiliza un correo electrónico institucional.");
 			document.getElementsByName("email")[0].style.borderBottomColor = "red";
 		}
 
@@ -133,17 +143,19 @@ const Register = () => {
 			formData.confirmPassword.trim()
 		) {
 			errors.confirmPassword = "Las contraseñas no coinciden";
+      alert("Las contraseñas no coinciden");
 			document.getElementsByName("confirmPassword")[0].style.borderBottomColor =
 				"red";
 		}
 		if (formData.password.length < 8 && formData.password.trim()) {
 			errors.password = "La contraseña debe tener al menos 8 caracteres";
+      alert("La contraseña debe tener al menos 8 caracteres");
 			document.getElementsByName("password")[0].style.borderBottomColor = "red";
 		}
 
 		if (formData.username.length < 4 && formData.username.trim()) {
-			errors.username =
-				"El nombre de usuario debe tener al menos 4 caracteres.";
+			errors.username = "El nombre de usuario debe tener al menos 4 caracteres.";
+      alert("El nombre de usuario debe tener al menos 4 caracteres.");
 			document.getElementsByName("username")[0].style.borderBottomColor = "red";
 		}
 
@@ -164,15 +176,18 @@ const Register = () => {
 
 				const newUser = data.saveUser;
 				console.log("Usuario creado:", newUser);
+        alert("Usuario creado exitosamente.");
 
 				// Aquí puedes redirigir al usuario a la página de inicio de sesión o realizar otras acciones después del registro exitoso
+        // Redirige a la página "/login"
+        navigate("/login");
 			} catch (error) {
 				console.error("Error en la mutación de registro:", error.message);
 				alert("Error al crear el usuario. Por favor, verifica tus datos.");
 			}
 		} else {
 			// Si hay errores, establecer los errores en el estado para mostrar mensajes de error
-			setFormErrors(errors);
+			//setFormErrors(errors);
 		}
 	};
 
