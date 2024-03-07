@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-//import { Link } from "react-router-dom/cjs/react-router-dom";
-//import { env } from "../../config.js";
-import style from "./LandinPage.module.css";
+import React from "react";
+import style from "./LandingPage.module.css";
 import backgroundImg from "../../assets/images/LoginImage.png";
 import girlImg from "../../assets/images/girl_university.png";
+import logoImg from "../../assets/images/Logo.png";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
@@ -16,10 +15,10 @@ const LandingPage = () => {
           <p className={style.description}>Un espacio digital dinámico donde la comunidad universitaria pueda conectarse, compartir conocimientos, colaborar en proyectos académicos y explorar oportunidades globales de aprendizaje</p>
           <div className={style.buttons}>
             <Link to="/register">
-              <button className={style.registerButton}>Register</button>
+              <button className={style.registerButton}>Registrarse</button>
             </Link>
             <Link to="/login">
-              <button className={style.loginButton}>Login Now</button>
+              <button className={style.loginButton}>Iniciar Sesión</button>
             </Link>
           </div>
         </div>
@@ -27,6 +26,9 @@ const LandingPage = () => {
           <img src={girlImg} alt="Girl walking to university" className={style.image} />
         </div>
       </div>
+      <footer className={style.footer}>
+        <p className={style.footerText}><img src={logoImg} alt="Logo" className={style.logo} />© 2024 StudentAcademy. Todos los derechos reservados.</p>
+      </footer>
     </div>
   );
 };
