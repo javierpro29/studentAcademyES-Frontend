@@ -44,7 +44,7 @@ const HomePage = () => {
                 <span className={style.events}><FaRegCalendarAlt className={style.eventsIcon} /> Events</span>
                 <div className={style.buttonsRow}>
                     <button className={style.currentButton}>Current</button>
-                    <button className={style.completedButton}>Completed</button>
+                    <button className={style.completedButton}>For you</button>
                 </div>
                 <div className={style.publications}>
                     <div className={style.publication}>

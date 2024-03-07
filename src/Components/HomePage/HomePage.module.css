@@ -118,9 +118,7 @@ body {
     border-left: 1px solid #ccc;
     overflow-y: auto;
     max-width: 700px;
-    /* Establece un ancho máximo */
     width: 100%;
-    /* Asegura que ocupe todo el ancho disponible */
     color: #fff;
 }
 
@@ -145,10 +143,16 @@ body {
     background-color: transparent;
     color: #fff;
     font-size: 16px;
+    transition: border-bottom-color 0.3s;
 }
 
 .centerSection .postInput::placeholder {
     color: #ccc;
+}
+
+.centerSection .postInput:focus {
+    outline: none;
+    border-bottom-color: #1491F4;
 }
 
 .centerSection .postButton {
@@ -156,7 +160,7 @@ body {
     color: rgb(43, 43, 43);
     border: none;
     padding: 7px 7px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
 }
