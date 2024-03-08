@@ -193,6 +193,7 @@ const Register = () => {
 
 	return (
 		<div className={styles.registerContainer}>
+			<div className={styles.card}>
 			<div className={styles.formContainer}>
 				<h1 className={styles.title}>StudentAcademy</h1>
 				<h2 className={styles.subtitle}>Register now!</h2>
@@ -320,6 +321,7 @@ const Register = () => {
 			</div>
 			<div className={styles.imageContainer}>
 				<img src={signupside} alt="Background" className={styles.image} />
+			</div>
 			</div>
 		</div>
 	);

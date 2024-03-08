@@ -1,5 +1,18 @@
 .registerContainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+.card {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(29, 29, 29, 0.1); /* Sombra */
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #1b1b1b;
 }
 
 .formContainer {
@@ -10,7 +23,7 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .title {
@@ -28,10 +41,8 @@
 
 .form {
   text-align: center;
-  width: 100%;
-  /* Hacemos que el formulario ocupe todo el ancho del contenedor */
-  max-width: 400px;
-  /* Establecemos un ancho máximo para el formulario */
+  width: 100%;/* Hacemos que el formulario ocupe todo el ancho del contenedor */
+  max-width: 400px;/* Establecemos un ancho máximo para el formulario */
 }
 
 .input {
@@ -52,12 +63,11 @@
   font-size: 1rem;
   width: calc(100% - 30px);
   padding: 15px;
-  border: 2px dotted white;
+  border: 2px solid white;
   background-color: #242424;
   color: #fff;
   transition: border-bottom-color 0.3s;
-  position: relative;
-  /* Agregamos posición relativa */
+  position: relative;/* Agregamos posición relativa */
 }
 
 .input:focus {
@@ -115,6 +125,6 @@
 
 .image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
