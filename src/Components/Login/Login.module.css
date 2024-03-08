@@ -3,10 +3,25 @@
   max-height: 100vh;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+.card {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(29, 29, 29, 0.1); /* Sombra */
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #1b1b1b;
+}
+
 .imageContainer {
   flex: 1;
-  background-color: #121212;
-  /* Color oscuro */
 }
 
 .image {
@@ -25,7 +40,7 @@
   width: 100%;
   /* Ajustamos el ancho al 100% */
   margin: auto;
-  padding: 0 2rem;
+  padding: 40px;
   /* Ajustamos el padding horizontal */
 }
 

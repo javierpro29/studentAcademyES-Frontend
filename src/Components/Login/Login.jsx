@@ -71,56 +71,57 @@ const Login = () => {
   };
 
 	return (
-		<div className={styles.login}>
-			<div className={styles.imageContainer}>
-				{/* Aquí iría la imagen de la parte izquierda */}
-				<img src={signupside} alt="Sign Up Side" className={styles.image} />
-			</div>
-			<div className={styles.formContainer}>
-				<h1 className={styles.title}>StudentAcademy</h1>
-				<h2 className={styles.subtitle}>Welcome, login to your account!</h2>
-				<div className={styles.form}>
-					<input
-						className={styles.input}
-						type="text"
-						placeholder="Email"
-						value={email}
-						onChange={handleEmailChange}
-					/>
-					{emailError && <div className={styles.error}>{emailError}</div>}
-					<input
-						className={styles.input}
-						type="password"
-						placeholder="Password"
-						value={password}
-						onChange={handlePasswordChange}
-					/>
-					{passwordError && <div className={styles.error}>{passwordError}</div>}
-					<div className={styles.rememberMeContainer}>
-						<input
-							type="checkbox"
-							id="rememberMe"
-							checked={rememberMe}
-							onChange={handleRememberMeChange}
-						/>
-						<label htmlFor="rememberMe" className={styles.checkbox}>
-							Remember me{" "}
-						</label>
-						<span className={styles.forgotPassword}>Forgot password?</span>
-					</div>
-					<button className={styles.loginButton} onClick={handleLogin}>
-						Login now
-					</button>
-					<div className={styles.signupMessage}>
-						Don’t have an account yet?{" "}
-						<Link to="/register" className={styles.signupLink}>
-							Sign up!
-						</Link>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.imageContainer}>
+          <img src={signupside} alt="Sign Up Side" className={styles.image} />
+        </div>
+        <div className={styles.formContainer}>
+          <h1 className={styles.title}>StudentAcademy</h1>
+          <h2 className={styles.subtitle}>Welcome, login to your account!</h2>
+          <div className={styles.form}>
+            <input
+              className={styles.input}
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+            {emailError && <div className={styles.error}>{emailError}</div>}
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            {passwordError && <div className={styles.error}>{passwordError}</div>}
+            <div className={styles.rememberMeContainer}>
+              <input
+                type="checkbox"
+                id="rememberMe"
+                checked={rememberMe}
+                onChange={handleRememberMeChange}
+              />
+              <label htmlFor="rememberMe" className={styles.checkbox}>
+                Remember me{" "}
+              </label>
+              <span className={styles.forgotPassword}>Forgot password?</span>
+            </div>
+            <button className={styles.loginButton} onClick={handleLogin}>
+              Login now
+            </button>
+            <div className={styles.signupMessage}>
+              Don’t have an account yet?{" "}
+              <Link to="/register" className={styles.signupLink}>
+                Sign up!
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;
