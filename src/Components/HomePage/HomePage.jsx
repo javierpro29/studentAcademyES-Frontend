@@ -43,7 +43,7 @@ const HomePage = () => {
                 </div>
                 <span className={style.events}><FaRegCalendarAlt className={style.eventsIcon} /> Events</span>
                 <div className={style.buttonsRow}>
-                    <button className={style.currentButton}>Current</button>
+                    <button className={style.currentButton}>Following</button>
                     <button className={style.completedButton}>For you</button>
                 </div>
                 <div className={style.publications}>
