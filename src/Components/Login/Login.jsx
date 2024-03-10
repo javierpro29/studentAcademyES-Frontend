@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import styles from "./Login.module.css";
 import signupside from "../../assets/images/LoginImage.png";
+import logoImg from "../../assets/images/Logo2.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const LOGIN_MUTATION = gql`
@@ -70,13 +71,14 @@ const Login = () => {
     }
   };
 
-	return (
+  return (
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.imageContainer}>
           <img src={signupside} alt="Sign Up Side" className={styles.image} />
         </div>
         <div className={styles.formContainer}>
+          <img src={logoImg} alt="Logo" className={styles.logo} />
           <h1 className={styles.title}>StudentAcademy</h1>
           <h2 className={styles.subtitle}>Welcome, login to your account!</h2>
           <div className={styles.form}>

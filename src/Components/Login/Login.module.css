@@ -44,8 +44,13 @@
   /* Ajustamos el padding horizontal */
 }
 
+.logo {
+  width: 120px; /* Tamaño del logo */
+}
+
 .title {
   font-size: 4.5rem;
+  margin-top: 0;
   margin-bottom: 0;
   /* Ajusta el tamaño de la fuente del título */
   font-weight: bold;

@@ -4,12 +4,13 @@ import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, 
 import style from "./HomePage.module.css";
 import signupside from "../../assets/images/LoginImage.png";
 import profile from "../../assets/images/profile.jpeg";
+import logoImg from "../../assets/images/Logo2.png";
 
 const HomePage = () => {
     return (
         <div className={style.homePage}>
             <div className={style.leftSection}>
-                <h1>StudentAcademy</h1>
+                <h1><img src={logoImg} alt="Logo" className={style.logo} />StudentAcademy</h1>
                 <div className={style.navButtons}>
                     <div className={style.navButton}><RiHomeLine /> Home</div>
                     <div className={style.navButton}><RiUserSharedLine /> My TEAMS</div>
@@ -32,7 +33,7 @@ const HomePage = () => {
                 <div className={style.topSection}>
                     <img src={profile} alt="Profile" className={style.topprofileImage} />
                     <input type="text" className={style.postInput} placeholder="What's on your mind?" />
-                    <button className={style.postButton}>POSTEAR</button>
+                    <button className={style.postButton}>POST</button>
                 </div>
                 <div className={style.postIcons}>
                     <button className={style.iconButton}><FaRegImage /></button>

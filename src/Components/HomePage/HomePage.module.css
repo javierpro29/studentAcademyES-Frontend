@@ -34,8 +34,15 @@ body {
     top: 0; /* Ajusta la posición superior */
 }
 
+.logo {
+    width: 45px; /* Tamaño del logo */
+    margin-top: -10px;
+  }
+
 .leftSection h1 {
-    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 

@@ -26,7 +26,12 @@
   padding: 0 2rem;
 }
 
+.logo {
+  width: 120px; /* Tamaño del logo */
+}
+
 .title {
+  margin-top: 0;
   font-size: 4.6rem;
   font-weight: bold;
   color: #fff;

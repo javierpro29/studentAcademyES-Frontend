@@ -37,11 +37,13 @@
 }
 
 .logo {
-    width: 100px; /* Tamaño del logo */
-    margin-bottom: -10px;
+    width: 120px; /* Tamaño del logo */
+    margin-right: 10px;
 }
 
 .title {
+    display: flex;
+    flex-direction: row;
     font-size: 7.1rem;
     color: #fff;
     margin-bottom: 20px;
