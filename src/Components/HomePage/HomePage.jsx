@@ -1,31 +1,49 @@
-import React from "react";
-import { RiHomeLine, RiUserSharedLine, RiMessage2Line, RiUserLine, RiSettings5Fill, RiNotification3Line, RiSearchEyeLine, RiFileGifLine } from 'react-icons/ri';
-import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaGit, FaPoll, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa'; // Importa los iconos necesarios
+import React, { useState } from "react";
+import { RiHomeLine, RiUserSharedLine, RiMessengerLine, RiUserLine, RiSettings5Fill, RiNotification3Line, RiSearchEyeLine, RiFileGifLine, RiDiscussLine, RiLogoutBoxLine, RiAddCircleLine,RiEdit2Line } from 'react-icons/ri';
+import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaPoll, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FiAlertCircle } from "react-icons/fi";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
 import style from "./HomePage.module.css";
 import signupside from "../../assets/images/LoginImage.png";
 import profile from "../../assets/images/profile.jpeg";
 import logoImg from "../../assets/images/Logo2.png";
 
 const HomePage = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
         <div className={style.homePage}>
             <div className={style.leftSection}>
                 <h1><img src={logoImg} alt="Logo" className={style.logo} />StudentAcademy</h1>
                 <div className={style.navButtons}>
                     <div className={style.navButton}><RiHomeLine /> Home</div>
-                    <div className={style.navButton}><RiUserSharedLine /> My TEAMS</div>
-                    <div className={style.navButton}><RiMessage2Line /> Teamvites</div>
+                    <div className={style.navButton}><RiUserSharedLine /> Colaboration Groups</div>
+                    <div className={style.navButton}><RiDiscussLine /> Forums</div>
+                    <div className={style.navButton}><RiMessengerLine /> Messenger</div>
                     <div className={style.navButton}><RiNotification3Line /> Notifications</div>
+                    <div className={style.navButton}><FiAlertCircle /> Privacy & Security</div>
                     <div className={style.navButton}><RiUserLine /> Profile</div>
+                    <div className={style.navButton}><TfiHeadphoneAlt /> Technical support</div>
                 </div>
                 <button className={style.createTeamButton}>Create a Team</button>
-                <div className={style.profileInfo}>
+                <div className={style.profileInfo} onClick={toggleMenu}>
                     <img src={profile} alt="Profile" />
                     <div>
                         <p className={style.profileName}>Dariel Restituyo</p>
                         <p className={style.profileHandle}>@restituyo</p>
                     </div>
                     <RiSettings5Fill className={style.settingsIcon} />
+                    {menuOpen && (
+                        <div className={style.profileMenu}>
+                            <button><RiAddCircleLine className={style.iconMenu}/>Add Existent Account</button>
+                            <button><RiEdit2Line className={style.iconMenu}/>Edit Profile</button>
+                            <button><RiLogoutBoxLine className={style.iconMenu} />Logout Account</button>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className={style.centerSection}>
@@ -33,7 +51,7 @@ const HomePage = () => {
                 <div className={style.topSection}>
                     <img src={profile} alt="Profile" className={style.topprofileImage} />
                     <input type="text" className={style.postInput} placeholder="What's on your mind?" />
-                    <button className={style.postButton}>POST</button>
+                    <button className={style.postButton}>POSTEAR</button>
                 </div>
                 <div className={style.postIcons}>
                     <button className={style.iconButton}><FaRegImage /></button>
