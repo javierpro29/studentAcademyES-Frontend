@@ -80,16 +80,19 @@ body {
     background-color: #0e6ebd;
 }
 
-.centerSection .imagePreview {
-    position: absolute; /* Posiciona la previsualización de imagen en relación al .topSection */
+.centerSection .imagePreview { 
+    /* posicion de la imagen  */
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
     right: 0;
-    bottom: 0;
     display: flex;
     align-items: center;
     background-color: #333;
     padding: 5px;
     border-radius: 5px;
 }
+
 
 .centerSection .imagePreview img {
     max-width: 100px;
@@ -328,4 +331,30 @@ body {
 
 .sectionSeparator {
     margin-bottom: 30px;
+}
+
+.centerSection .commentInput {
+    width: calc(100% - 60px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.centerSection .commentInput:focus {
+    outline: none;
+    border-color: #1491F4;
+}
+
+.centerSection .commentButton {
+    background-color: #1491F4;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.centerSection .commentButton:hover {
+    background-color: #0e6ebd;
 }

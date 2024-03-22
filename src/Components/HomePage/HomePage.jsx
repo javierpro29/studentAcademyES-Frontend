@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
@@ -188,9 +189,10 @@ const HomePage = () => {
                                 <button className={style.interactionButton}><FaCloudUploadAlt /></button>
                             </div>
                             {showCommentInput && (
-                                <div>
+                                <div className={style.commentInputContainer}>
                                     <input
                                         type="text"
+                                        className={style.commentInput}
                                         placeholder="Escribe un comentario..."
                                         value={commentText}
                                         onChange={(e) => setCommentText(e.target.value)}
@@ -200,7 +202,7 @@ const HomePage = () => {
                                             }
                                         }}
                                     />
-                                    <button onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
+                                    <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
                                 </div>
                             )}
                             {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
