@@ -32,57 +32,22 @@ body {
     color: #fff;
 }
 
-.centerSection .topSection {
+.goBackButton {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    color: #fff;
+    cursor: pointer;
 }
 
-.centerSection .topprofileImage {
-    width: 40px;
-    height: 40px;
+.gobackicon{
+    padding: 5px;
     border-radius: 50%;
     margin-right: 10px;
+    margin-bottom: -8px;
 }
 
-.centerSection .postInput {
-    width: calc(100% - 150px);
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent;
-    color: #fff;
-    font-size: 16px;
-    transition: border-bottom-color 0.3s;
-}
-
-.centerSection .postInput::placeholder {
-    color: #ccc;
-}
-
-.centerSection .postInput:focus {
-    outline: none;
-    border-bottom-color: #1491F4;
-}
-
-.centerSection .postButton {
-    background-color: #1491F4;
-    color: rgb(43, 43, 43);
-    border: none;
-    padding: 10px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.centerSection .postButton:hover {
-    background-color: #0e6ebd;
-}
-
-
-.centerSection .postIcons {
-    margin-left: 25px;
-    margin-top: 10px; /* Ajuste para separar los iconos del input */
+.gobackicon:hover{
+    background-color: #333;
 }
 
 .centerSection .iconButton {
@@ -116,6 +81,7 @@ body {
 
 .centerSection .buttonsRow {
     display: flex;
+    justify-content: end;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(167, 167, 167);
     width: 100%;
@@ -166,6 +132,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .centerSection .publication p {

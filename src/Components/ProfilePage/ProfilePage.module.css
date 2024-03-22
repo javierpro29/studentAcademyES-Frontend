@@ -1,0 +1,187 @@
+/* Estilos Generales*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+}
+
+.profilePage {
+    display: flex;
+    justify-content: center;
+}
+
+.centerSection {
+    flex-grow: 1;
+    padding:  20px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    max-width: 800px;
+    width: 100%;
+    color: #fff;
+}
+
+.goBackButton {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.gobackicon{
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: -8px;
+}
+
+.gobackicon:hover{
+    background-color: #333;
+}
+
+.profileBanner {
+    position: relative;
+    margin-bottom: 20px;
+    max-height: 300px; /* Altura máxima del banner */
+    overflow: hidden; /* Evita que la imagen del banner se desborde */
+    align-items: flex-end; /* Coloca la imagen de perfil en la parte inferior */
+}
+
+.bannerImage {
+    border-radius: 7px;
+    width: 100%;
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    display: block;
+}
+
+.profileImageContainer {
+    position: sticky;
+    display: flex; /* Utiliza display flex para el contenedor de la imagen de perfil */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    margin-top: -100px;
+    margin-bottom: 0;
+}
+
+.profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff; /* Añadido borde blanco alrededor de la imagen */
+}
+
+.profileInfo {
+    display: flex;
+    text-align: center; /* Centrado del contenido */
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profileName {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.profileHandle {
+    margin-top: 0;
+}
+
+.editprofile{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+.editProfileButton {
+    position: sticky;
+    background-color: #1491F4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: -50px;
+}
+
+.editProfileButton:hover {
+    background-color: #2183d3;
+}
+
+.iconprofile{
+    margin-bottom: -2px;
+}
+.profileStats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.statNumber {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.statName {
+    font-size: 14px;
+}
+
+.buttonsRow {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+}
+
+.currentButton {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: -10px;
+    width: 200px;
+}
+
+.currentButton:focus {
+    outline: none;
+}
+
+.centerSection .currentButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .currentButton::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #1491F4;
+    transition: width 0.3s ease;
+}
+
+.centerSection .currentButton:focus::after {
+    width: 100%;
+}
+
+.postSection {
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.sectionSeparator {
+    margin-bottom: 30px;
+}

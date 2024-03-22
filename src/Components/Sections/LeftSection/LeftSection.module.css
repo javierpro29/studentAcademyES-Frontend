@@ -1,0 +1,161 @@
+/* Estilos para la Seccion Izquierda*/
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    padding: 20px;
+    color: #fff;
+    position: sticky; /* Fija la posición del elemento */
+    top: 0; /* Ajusta la posición superior */
+}
+
+.logo {
+    width: 45px; /* Tamaño del logo */
+    margin-top: -10px;
+  }
+
+.leftSection h1 {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+.leftSection .navButtons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.leftSection .navButton {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.leftSection .navButton svg {
+    margin-right: 10px;
+}
+
+.leftSection .navButton:hover {
+    color: #117fd8;
+}
+
+.createTeamButton {
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.createTeamButton:hover {
+    background-color: #117fd8;
+}
+
+.leftSection .profileInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.leftSection .profileInfo:hover {
+    background-color: #333;
+}
+
+.leftSection .profileInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: -65px;
+}
+
+.leftSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -5px;
+    margin-left: 0;
+}
+
+.leftSection .profileInfo .profileHandle {
+    color: #888;
+    margin-top: 0;/* Elimina el margen superior */
+}
+
+.leftSection .settingsIcon {
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.profileMenu {
+    position: absolute;
+    bottom: 118px; /* Ajusta la posición hacia abajo */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centra horizontalmente */
+    background-color: #1a1a1a; /* Cambia el color de fondo */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    padding: 10px;
+    z-index: 1; /* Asegura que el menú esté por encima de otros elementos */
+    display: none; /* Oculta el menú por defecto */
+    width: 200px;
+    max-width: 700px; /* Limita el ancho del menú */
+    transition: opacity 0.3s ease-out;
+    opacity: 0; /* Oculta el menú por defecto */
+}
+
+.profileInfo:hover .profileMenu,
+.profileMenu:hover {
+    opacity: 1;
+    display: block;
+}
+
+.profileMenu::before {
+    content: "";
+    position: absolute;
+    top: 100%; /* Alinea el triángulo con el borde inferior del menú */
+    left: 50%;
+    margin-left: -10px; /* Centra el triángulo horizontalmente */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #1a1a1a; /* Triángulo apuntando hacia arriba */
+}
+
+.profileMenu button {
+    display: block;
+    width: 100%;
+    padding: 12px 0; /* Incrementa el padding para un mejor aspecto */
+    border: none;
+    background-color: transparent;
+    color: #fff; /* Cambia el color del texto */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.profileMenu button:hover {
+    background-color: #333; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.profileMenu .iconMenu{
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+
