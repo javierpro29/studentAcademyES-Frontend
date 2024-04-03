@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
@@ -8,9 +8,43 @@ import profile from "../../assets/images/profile.png";
 
 const ProfilePage = () => {
     const navigate = useNavigate();
+    const [isEditing, setIsEditing] = useState(false);
+    const [profileInfo, setProfileInfo] = useState({
+        name: "",
+        handle: ""
+    });
+
+    useEffect(() => {
+        const storedProfile = localStorage.getItem('profileInfo');
+        if (storedProfile) {
+            setProfileInfo(JSON.parse(storedProfile));
+        }
+    }, []);
 
     const handleGoBack = () => {
         navigate(-1);
+    };
+
+    const handleEditProfile = () => {
+        setIsEditing(true);
+    };
+
+    const handleSaveProfile = () => {
+        localStorage.setItem('profileInfo', JSON.stringify(profileInfo));
+        setIsEditing(false);
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setProfileInfo(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleButtonClick = (buttonName) => {
+        // Aquí puedes implementar lógica adicional para cada botón si es necesario
+        console.log(`Click en el botón ${buttonName}`);
     };
 
     return (
@@ -30,13 +64,31 @@ const ProfilePage = () => {
                     <img src={profile} alt="Profile" className={style.profileImage} />
                 </div>
 
-                <div className={style.editprofile}>
-                    <button className={style.editProfileButton}><RiEdit2Line className={style.iconprofile} /> Edit Profile</button>
-                </div>
-                
+                {isEditing ? (
+                    <div className={style.editprofile}>
+                        <input
+                            type="text"
+                            name="name"
+                            value={profileInfo.name}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            type="text"
+                            name="handle"
+                            value={profileInfo.handle}
+                            onChange={handleInputChange}
+                        />
+                        <button className={style.editProfileButton} onClick={handleSaveProfile}>Save</button>
+                    </div>
+                ) : (
+                    <div className={style.editprofile}>
+                        <button className={style.editProfileButton} onClick={handleEditProfile}><RiEdit2Line className={style.iconprofile} /> Edit Profile</button>
+                    </div>
+                )}
+
                 <div className={style.profileInfo}>
-                    <p className={style.profileName}>Dariel Restituyo</p>
-                    <p className={style.profileHandle}>@restituyo</p>
+                    <p className={style.profileName}>{profileInfo.name}</p>
+                    <p className={style.profileHandle}>{profileInfo.handle}</p>
                 </div>
 
                 <div className={style.profileStats}>
@@ -54,9 +106,9 @@ const ProfilePage = () => {
                     </div>
                 </div>
                 <div className={style.buttonsRow}>
-                    <button className={style.currentButton}>Posts</button>
-                    <button className={style.currentButton}>Proyectos</button>
-                    <button className={style.currentButton}>Investigaciones</button>
+                    <button className={style.currentButton} onClick={() => handleButtonClick("Posts")}>Posts</button>
+                    <button className={style.currentButton} onClick={() => handleButtonClick("Proyectos")}>Proyectos</button>
+                    <button className={style.currentButton} onClick={() => handleButtonClick("Investigaciones")}>Investigaciones</button>
                 </div>
                 <div className={style.postSection}>
                     <div className={style.post}>...</div>
