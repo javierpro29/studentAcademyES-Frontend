@@ -92,12 +92,20 @@
   border-bottom-color: #1491F4;
 }
 
-
-
 .error {
   color: red;
   text-align: left;
   margin-bottom: 10px;
+}
+
+.passwordContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.passwordContainer .showPasswordIcon {
+  cursor: pointer;
 }
 
 .rememberMeContainer {

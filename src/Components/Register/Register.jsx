@@ -18,7 +18,6 @@ const SAVE_USER_MUTATION = gql`
 			email
 			roleId
 			rol {
-				id
 				rolname
 			}
 		}
@@ -300,7 +299,6 @@ const Register = () => {
 								<option value="">User Type</option>
 								<option value="Estudiante">Estudiante</option>
 								<option value="Maestro/a">Maestro/a</option>
-								<option value="Administrador">Administrador</option>
 							</select>
 							{formErrors.rolname && (
 								<div className={styles.error}>{formErrors.rolname}</div>
