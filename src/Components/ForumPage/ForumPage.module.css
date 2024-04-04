@@ -63,6 +63,66 @@ body {
     color: #1491F4;
 }
 
+.centerSection .topSection {
+    display: flex;
+    align-items: center;
+}
+
+.centerSection .topImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85px;
+    height: 85px;
+    border-radius: 10%;
+    margin-right: 10px;
+}
+
+.centerSection .topSection .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.centerSection .topSection .subtitle {
+    font-weight: lighter;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: -5px;
+}
+
+.centerSection .topSection .description {
+    color: #888;
+    margin-top: 0;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.centerSection .response  {
+    display: flex;
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+    border-bottom:1px solid #333;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.centerSection .response .responsebutton {
+    background-color: #1491F4;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.responsebutton:hover {
+    background-color: #117fd8;
+}
+
+
 .centerSection h2 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -128,11 +188,8 @@ body {
 }
 
 .centerSection .publication {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px;
-    cursor: pointer;
 }
 
 .centerSection .publication p {
@@ -140,59 +197,66 @@ body {
     margin-top: 10px;
 }
 
-.centerSection .profileInfo {
+.centerSection .messageContainer {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    align-items: flex-start;
 }
 
-.centerSection .profileImage {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.centerSection .profileInfo {
     margin-right: 10px;
 }
 
-.centerSection .profileInfo .profileName {
-    font-weight: bold;
-    margin-bottom: -5px;
+.centerSection .profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-.centerSection .profileInfo .profileHandle {
-    color: #888;
+.centerSection .messageBox {
+    position: relative;
+    margin-left: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 85%; /* Ajusta el ancho máximo del cuadro de mensaje */
+}
+
+.centerSection .messageTriangle {
+    position: absolute;
+    top: 10px; /* Posición arriba del cuadro de mensaje */
+    left: -10px; /* Posición a la derecha del cuadro de mensaje */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #333;
+}
+
+.centerSection .messageTitle {
+    margin: 0;
+}
+
+.centerSection .messageContent {
     margin-top: 0;
+    text-align: justify;
 }
 
 .centerSection .postTime {
+    position: absolute;
+    color: #6da6fd;
+    font-size: 15px;
     margin-left: auto;
-    color: #888;
-    font-size: 12px;
-}
-
-.image {
-    width: 100%;
-    max-height: 450px;
-    height: auto;
-    font-size: 40px;
-    object-fit: cover;
-    border-radius: 15px;
+    margin-top: 10px;
+    right: 20px;
 }
 
 .centerSection .interactionButtons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     margin-top: 10px;
-    border: none;
 }
 
 .centerSection .interactionButton {
-    display: flex;
-    align-items: center;
-    background: transparent;
+    background-color: transparent;
     border: none;
     color: #fff;
     font-size: 16px;
@@ -206,6 +270,15 @@ body {
 
 .centerSection .interactionButton:hover {
     color: #1491F4;
+}
+
+.image {
+    width: 100%;
+    max-height: 450px;
+    height: auto;
+    font-size: 40px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .sectionSeparator {

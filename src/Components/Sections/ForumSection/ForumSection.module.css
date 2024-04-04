@@ -1,0 +1,156 @@
+/* Estilos para la Seccion Derecha*/
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    color: #fff;
+}
+
+.rightSection .searchBoxContainer {
+    position: relative;
+    width: 100%;
+}
+
+.rightSection .searchBox {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    transition: border-bottom-color 0.3s;
+}
+
+.rightSection .searchBox:focus {
+    outline: none;
+    border-bottom-color: #1491F4;
+}
+
+.rightSection .searchIcon {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    top: 23px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.rightSection .teamRecommendations,
+.rightSection .hashtagsRecommendations {
+    width: 100%;
+    margin-bottom: 30px;
+    border-top: 1px solid rgb(167, 167, 167);
+}
+
+.rightSection .sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rightSection .teamRecommendations .team,
+.rightSection .hashtagsRecommendations .hashtag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.rightSection .teamRecommendations .team img,
+.rightSection .hashtagsRecommendations .hashtag img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.rightSection .teamRecommendations .team .name,
+.rightSection .hashtagsRecommendations .hashtag .name {
+    font-weight: bold;
+}
+
+.rightSection .teamRecommendations .team .handle,
+.rightSection .hashtagsRecommendations .hashtag .handle {
+    font-size: 12px;
+    color: #888;
+}
+
+.rightSection .profileInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+}
+
+.rightSection .profileInfo:hover {
+    background-color: #5c5c5c;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.rightSection .profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.rightSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.rightSection .profileInfo .profileHandle {
+    color: #888;
+    margin-top: 0;
+}
+
+.rightSection .buttonMore {
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rightSection .buttonCreate {
+    text-align: start;
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+.rightSection .buttonMore:hover {
+    background-color: #117fd8;
+}
+
+.rightSection .showMore {
+    color: #1491F4;
+    cursor: pointer;
+}
+
+.rightSection .hashtagsDetails {
+    border-bottom: 1px solid #888;
+    margin-bottom: 10px;
+}
+
+.rightSection .hashtagsDetails .hashtags {
+    font-weight: bold;
+    margin-bottom: -12px;
+}
+
+.rightSection .hashtagsDetails .teams {
+    color: #888;
+}

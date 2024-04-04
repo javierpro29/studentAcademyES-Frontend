@@ -15,7 +15,7 @@ body {
     /* Centro el contenido horizontalmente */
     align-items: flex-start;
     /* Alínea el contenido arriba */
-    min-height: 100vh;
+    min-height: 100dvh;
     /* Ajustar la altura mínima de la página */
 }
 
