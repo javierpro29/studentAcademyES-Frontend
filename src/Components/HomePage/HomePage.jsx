@@ -10,9 +10,8 @@ import profile from "../../assets/images/profile.png";
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState('');
-    const [newPostImageData, setNewPostImageData] = useState(null); 
+    const [newPostImageData, setNewPostImageData] = useState(null);
     const [comments, setComments] = useState([]);
-    const [showCommentInput, setShowCommentInput] = useState(false);
     const [commentText, setCommentText] = useState('');
 
     useEffect(() => {
@@ -26,7 +25,8 @@ const HomePage = () => {
                 text: 'Esto es un simple post.',
                 likes: 10,
                 comments: 5,
-                shares: 3
+                shares: 3,
+                showCommentInput: false // Nuevo estado para controlar el área de comentario
             }
         ];
         setPosts(fetchedPosts);
@@ -36,27 +36,28 @@ const HomePage = () => {
         if (lastPost) {
             const { text, imageData } = JSON.parse(lastPost);
             setNewPost(text);
-            setNewPostImageData(imageData); 
+            setNewPostImageData(imageData);
         }
     }, []);
 
     const handlePostSubmit = () => {
-        if (newPost.trim() !== '' || newPostImageData) { 
+        if (newPost.trim() !== '' || newPostImageData) {
             const newPostData = {
                 id: posts.length + 1,
                 author: 'Dariel Restituyo',
                 handle: '@restituyo',
                 time: 'Just now',
                 text: newPost,
-                image: newPostImageData, 
+                image: newPostImageData,
                 likes: 0,
                 comments: 0,
-                shares: 0
+                shares: 0,
+                showCommentInput: false // Nuevo estado para controlar el área de comentario
             };
             setPosts([...posts, newPostData]);
             setNewPost('');
-            setNewPostImageData(null); 
-            localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData })); 
+            setNewPostImageData(null);
+            localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
         }
     };
 
@@ -71,20 +72,25 @@ const HomePage = () => {
     };
 
     const handleComment = (postId) => {
-        setShowCommentInput(true);
+        const updatedPosts = posts.map(post => {
+            if (post.id === postId) {
+                return { ...post, showCommentInput: !post.showCommentInput };
+            }
+            return post;
+        });
+        setPosts(updatedPosts);
     };
 
     const handleCommentSubmit = (postId) => {
         if (commentText.trim() !== '') {
             const updatedPosts = posts.map(post => {
                 if (post.id === postId) {
-                    return { ...post, comments: post.comments + 1 };
+                    return { ...post, comments: post.comments + 1, showCommentInput: false };
                 }
                 return post;
             });
             setPosts(updatedPosts);
             setComments([...comments, { postId, comment: commentText }]);
-            setShowCommentInput(false);
             setCommentText('');
         }
     };
@@ -107,7 +113,7 @@ const HomePage = () => {
     const handleDeleteComment = (postId, commentIndex) => {
         const updatedPosts = posts.map(post => {
             if (post.id === postId) {
-                const updatedComments = comments.filter((_, index) => index !== commentIndex);
+                const updatedComments = comments.filter(comment => comment.postId === postId);
                 return { ...post, comments: post.comments - 1 };
             }
             return post;
@@ -118,7 +124,6 @@ const HomePage = () => {
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
-        // Convertir la imagen base64
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
@@ -143,10 +148,10 @@ const HomePage = () => {
                     <button className={style.postButton} onClick={handlePostSubmit}>
                         POSTEAR
                     </button>
-                    {newPostImageData && ( 
+                    {newPostImageData && (
                         <div className={style.imagePreview}>
-                            <img src={newPostImageData} alt="Preview" /> 
-                            <button onClick={() => setNewPostImageData(null)}> 
+                            <img src={newPostImageData} alt="Preview" />
+                            <button onClick={() => setNewPostImageData(null)}>
                                 <FaTimes />
                             </button>
                         </div>
@@ -201,7 +206,7 @@ const HomePage = () => {
                                 </button>
                                 <button className={style.interactionButton}><FaCloudUploadAlt /></button>
                             </div>
-                            {showCommentInput && (
+                            {post.showCommentInput && (
                                 <div className={style.commentInputContainer}>
                                     <input
                                         type="text"
