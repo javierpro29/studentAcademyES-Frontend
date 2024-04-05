@@ -208,20 +208,15 @@ const HomePage = () => {
                             </div>
                             {post.showCommentInput && (
                                 <div className={style.commentInputContainer}>
-                                    <input
-                                        type="text"
-                                        className={style.commentInput}
+                                    <textarea
+                                        className={style.commentTextArea}
                                         placeholder="Escribe un comentario..."
                                         value={commentText}
                                         onChange={(e) => setCommentText(e.target.value)}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter') {
-                                                handleCommentSubmit(post.id);
-                                            }
-                                        }}
                                     />
                                     <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
                                 </div>
+
                             )}
                             {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
                                 <div key={commentIndex} className={style.comment}>
