@@ -8,7 +8,7 @@ import profile from "../../assets/images/profile.png";
 
 const ProfilePage = () => {
     const navigate = useNavigate();
-    const [isEditing, setIsEditing] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [profileInfo, setProfileInfo] = useState({
         name: "",
         handle: ""
@@ -26,12 +26,12 @@ const ProfilePage = () => {
     };
 
     const handleEditProfile = () => {
-        setIsEditing(true);
+        setIsModalOpen(true);
     };
 
     const handleSaveProfile = () => {
         localStorage.setItem('profileInfo', JSON.stringify(profileInfo));
-        setIsEditing(false);
+        setIsModalOpen(false);
     };
 
     const handleInputChange = (e) => {
@@ -53,7 +53,7 @@ const ProfilePage = () => {
             <div className={style.centerSection}>
 
                 <div className={style.goBackButton} onClick={handleGoBack}>
-                    <h2><RiArrowLeftLine className={style.gobackicon}/>Profile</h2>
+                    <h2><RiArrowLeftLine className={style.gobackicon} />Profile</h2>
                 </div>
 
                 <div className={style.profileBanner}>
@@ -64,32 +64,43 @@ const ProfilePage = () => {
                     <img src={profile} alt="Profile" className={style.profileImage} />
                 </div>
 
-                {isEditing ? (
-                    <div className={style.editprofile}>
-                        <input
-                            type="text"
-                            name="name"
-                            value={profileInfo.name}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="handle"
-                            value={profileInfo.handle}
-                            onChange={handleInputChange}
-                        />
-                        <button className={style.editProfileButton} onClick={handleSaveProfile}>Save</button>
-                    </div>
-                ) : (
-                    <div className={style.editprofile}>
-                        <button className={style.editProfileButton} onClick={handleEditProfile}><RiEdit2Line className={style.iconprofile} /> Edit Profile</button>
-                    </div>
-                )}
+                <button className={style.editProfileButton} onClick={handleEditProfile}><RiEdit2Line className={style.iconprofile} /> Edit Profile</button>
 
                 <div className={style.profileInfo}>
                     <p className={style.profileName}>{profileInfo.name}</p>
                     <p className={style.profileHandle}>{profileInfo.handle}</p>
                 </div>
+
+                {/* Modal */}
+                {isModalOpen && (
+                    <div className={style.modal}>
+                        <div className={style.modalContent}>
+                            <h2>Edit Profile</h2>
+                            <input
+                                type="text"
+                                name="name"
+                                value={profileInfo.name}
+                                onChange={handleInputChange}
+                                placeholder="Name"
+                            />
+                            <input
+                                type="text"
+                                name="handle"
+                                value={profileInfo.handle}
+                                onChange={handleInputChange}
+                                placeholder="Handle"
+                            />
+                            <div className={style.modalButtons}>
+                                <button className={style.modalCancelButton} onClick={() => setIsModalOpen(false)}>
+                                    Cancel
+                                </button>
+                                <button className={style.modalSaveButton} onClick={handleSaveProfile}>
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <div className={style.profileStats}>
                     <div className={style.stat}>

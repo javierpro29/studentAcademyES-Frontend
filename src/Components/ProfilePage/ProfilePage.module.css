@@ -1,4 +1,4 @@
-/* Estilos Generales*/
+/* Estilos Generales */
 
 html,
 body {
@@ -15,7 +15,7 @@ body {
 
 .centerSection {
     flex-grow: 1;
-    padding:  20px;
+    padding: 20px;
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
     overflow-y: auto;
@@ -31,50 +31,42 @@ body {
     cursor: pointer;
 }
 
-.gobackicon{
-    padding: 5px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-bottom: -8px;
-}
-
-.gobackicon:hover{
+.gobackicon:hover {
     background-color: #333;
 }
 
 .profileBanner {
     position: relative;
     margin-bottom: 20px;
-    max-height: 300px; /* Altura máxima del banner */
-    overflow: hidden; /* Evita que la imagen del banner se desborde */
-    align-items: flex-end; /* Coloca la imagen de perfil en la parte inferior */
+    max-height: 300px;
+    overflow: hidden;
+    align-items: flex-end;
 }
 
 .bannerImage {
     border-radius: 7px;
     width: 100%;
-    height: auto; /* Permite que la altura se ajuste automáticamente */
+    height: auto;
     display: block;
 }
 
 .profileImageContainer {
     position: sticky;
-    display: flex; /* Utiliza display flex para el contenedor de la imagen de perfil */
-    justify-content: center; /* Centra la imagen horizontalmente */
+    display: flex;
+    justify-content: center;
     margin-top: -100px;
-    margin-bottom: 0;
 }
 
 .profileImage {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 3px solid #fff; /* Añadido borde blanco alrededor de la imagen */
+    border: 3px solid #fff;
 }
 
 .profileInfo {
     display: flex;
-    text-align: center; /* Centrado del contenido */
+    text-align: center;
     justify-content: center;
     flex-direction: column;
 }
@@ -83,20 +75,14 @@ body {
     font-size: 20px;
     margin-bottom: 0;
 }
+
 .profileHandle {
     margin-top: 0;
 }
 
-.editprofile{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: right;
-    align-items: right;
-}
 .editProfileButton {
     position: sticky;
-    background-color: #1491F4;
+    background-color: #1491f4;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -109,9 +95,6 @@ body {
     background-color: #2183d3;
 }
 
-.iconprofile{
-    margin-bottom: -2px;
-}
 .profileStats {
     display: flex;
     justify-content: space-around;
@@ -134,7 +117,7 @@ body {
 
 .buttonsRow {
     display: flex;
-    justify-content: center; /* Centra los botones */
+    justify-content: center;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(167, 167, 167);
 }
@@ -154,7 +137,7 @@ body {
 }
 
 .centerSection .currentButton:hover {
-    color: #1491F4;
+    color: #1491f4;
 }
 
 .centerSection .currentButton::after {
@@ -162,7 +145,7 @@ body {
     display: block;
     width: 0;
     height: 2px;
-    background-color: #1491F4;
+    background-color: #1491f4;
     transition: width 0.3s ease;
 }
 
@@ -184,4 +167,96 @@ body {
 
 .sectionSeparator {
     margin-bottom: 30px;
+}
+
+/* Estilos para la ventana emergente (modal) */
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modalContent h2 {
+    color: #fff;
+    margin-top: 0;
+}
+
+.modalContent input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+}
+
+.modalContent input::placeholder {
+    color: #aaa;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalCancelButton {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.modalCancelButton:hover {
+    background-color: #666;
+}
+
+.modalSaveButton {
+    background-color: #1491f4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modalSaveButton:hover {
+    background-color: #0e6ebd;
 }

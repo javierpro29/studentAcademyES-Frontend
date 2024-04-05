@@ -196,7 +196,7 @@ const HomePage = () => {
                             <p>{post.text}</p>
                             <div className={style.interactionButtons}>
                                 <button className={style.interactionButton} onClick={() => handleLike(post.id)}>
-                                    <FaRegHeart /> {post.likes}
+                                    <FaRegHeart style={{ color: 'red' }} /> {post.likes}
                                 </button>
                                 <button className={style.interactionButton} onClick={() => handleComment(post.id)}>
                                     <FaRegComment /> {post.comments}
