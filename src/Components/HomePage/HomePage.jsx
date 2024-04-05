@@ -13,6 +13,7 @@ const HomePage = () => {
     const [newPostImageData, setNewPostImageData] = useState(null);
     const [comments, setComments] = useState([]);
     const [commentText, setCommentText] = useState('');
+    const [showPostModal, setShowPostModal] = useState(false);
 
     useEffect(() => {
         const fetchedPosts = [
@@ -31,7 +32,6 @@ const HomePage = () => {
         ];
         setPosts(fetchedPosts);
 
-        // Restaurar el último post desde el almacenamiento local
         const lastPost = localStorage.getItem('lastPost');
         if (lastPost) {
             const { text, imageData } = JSON.parse(lastPost);
@@ -58,6 +58,7 @@ const HomePage = () => {
             setNewPost('');
             setNewPostImageData(null);
             localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
+            setShowPostModal(false); // Cerrar la ventana emergente después de postear
         }
     };
 
@@ -136,48 +137,9 @@ const HomePage = () => {
             <LeftSection />
             <div className={style.centerSection}>
                 <h2>Welcome, Dariel Restituyo</h2>
-                <div className={style.topSection}>
-                    <img src={profile} alt="Profile" className={style.topprofileImage} />
-                    <input
-                        type="text"
-                        className={style.postInput}
-                        placeholder="What's on your mind?"
-                        value={newPost}
-                        onChange={(e) => setNewPost(e.target.value)}
-                    />
-                    <button className={style.postButton} onClick={handlePostSubmit}>
-                        POSTEAR
-                    </button>
-                    {newPostImageData && (
-                        <div className={style.imagePreview}>
-                            <img src={newPostImageData} alt="Preview" />
-                            <button onClick={() => setNewPostImageData(null)}>
-                                <FaTimes />
-                            </button>
-                        </div>
-                    )}
-                </div>
-                <div className={style.postIcons}>
-                    <label htmlFor="imageUpload" className={style.iconButton}>
-                        <FaRegImage />
-                        <input
-                            id="imageUpload"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            style={{ display: 'none' }}
-                        />
-                    </label>
-                    <button className={style.iconButton}><RiFileGifLine /></button>
-                    <button className={style.iconButton}><FaPoll /></button>
-                    <button className={style.iconButton}><FaCalendarAlt /></button>
-                    <button className={style.iconButton}><FaMapMarkerAlt /></button>
-                </div>
-                <span className={style.events}><FaRegCalendarAlt className={style.eventsIcon} /> Events</span>
-                <div className={style.buttonsRow}>
-                    <button className={style.currentButton}>Following</button>
-                    <button className={style.completedButton}>For you</button>
-                </div>
+                <button className={style.postButton} onClick={() => setShowPostModal(true)}>
+                    Nuevo Post
+                </button>
                 <div className={style.publications}>
                     {posts.map((post, index) => (
                         <div key={post.id} className={style.publication}>
@@ -233,6 +195,36 @@ const HomePage = () => {
                 <hr className={style.sectionSeparator} />
             </div>
             <RightSection />
+            {showPostModal && (
+                <div className={style.postModal}>
+                    <div className={style.modalContent}>
+                        <span onClick={() => setShowPostModal(false)} className={style.close}>&times;</span>
+                        <textarea
+                            className={style.postTextarea}
+                            placeholder="What's on your mind?"
+                            value={newPost}
+                            onChange={(e) => setNewPost(e.target.value)}
+                        />
+                        <input
+                            id="imageUploadModal"
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                        />
+                        <button className={style.postButton} onClick={handlePostSubmit}>
+                            POSTEAR
+                        </button>
+                        {newPostImageData && (
+                            <div className={style.imagePreview}>
+                                <img src={newPostImageData} alt="Preview" />
+                                <button onClick={() => setNewPostImageData(null)}>
+                                    <FaTimes />
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
