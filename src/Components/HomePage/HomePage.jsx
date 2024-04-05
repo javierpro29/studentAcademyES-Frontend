@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
@@ -11,7 +10,7 @@ import profile from "../../assets/images/profile.png";
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState('');
-    const [newPostImage, setNewPostImage] = useState(null);
+    const [newPostImageData, setNewPostImageData] = useState(null); 
     const [comments, setComments] = useState([]);
     const [showCommentInput, setShowCommentInput] = useState(false);
     const [commentText, setCommentText] = useState('');
@@ -31,24 +30,33 @@ const HomePage = () => {
             }
         ];
         setPosts(fetchedPosts);
+
+        // Restaurar el último post desde el almacenamiento local
+        const lastPost = localStorage.getItem('lastPost');
+        if (lastPost) {
+            const { text, imageData } = JSON.parse(lastPost);
+            setNewPost(text);
+            setNewPostImageData(imageData); 
+        }
     }, []);
 
     const handlePostSubmit = () => {
-        if (newPost.trim() !== '' || newPostImage) {
+        if (newPost.trim() !== '' || newPostImageData) { 
             const newPostData = {
                 id: posts.length + 1,
                 author: 'Dariel Restituyo',
                 handle: '@restituyo',
                 time: 'Just now',
                 text: newPost,
-                image: newPostImage,
+                image: newPostImageData, 
                 likes: 0,
                 comments: 0,
                 shares: 0
             };
             setPosts([...posts, newPostData]);
             setNewPost('');
-            setNewPostImage(null);
+            setNewPostImageData(null); 
+            localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData })); 
         }
     };
 
@@ -110,7 +118,12 @@ const HomePage = () => {
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
-        setNewPostImage(file);
+        // Convertir la imagen base64
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setNewPostImageData(reader.result);
+        };
     };
 
     return (
@@ -130,10 +143,10 @@ const HomePage = () => {
                     <button className={style.postButton} onClick={handlePostSubmit}>
                         POSTEAR
                     </button>
-                    {newPostImage && (
+                    {newPostImageData && ( 
                         <div className={style.imagePreview}>
-                            <img src={URL.createObjectURL(newPostImage)} alt="Preview" />
-                            <button onClick={() => setNewPostImage(null)}>
+                            <img src={newPostImageData} alt="Preview" /> 
+                            <button onClick={() => setNewPostImageData(null)}> 
                                 <FaTimes />
                             </button>
                         </div>
