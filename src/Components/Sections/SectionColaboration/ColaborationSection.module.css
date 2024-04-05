@@ -154,3 +154,114 @@
 .rightSection .hashtagsDetails .teams {
     color: #888;
 }
+
+
+/* Estilos para el fondo del modal */
+/* Estilos para el fondo del modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos para el contenido del modal */
+.modalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: slideUp;
+  animation-duration: 0.4s;
+  color: #000; /* Cambio de color de texto a negro */
+}
+
+/* Animación de subida */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para el botón de cierre */
+.closeModal {
+  color: #000; /* Cambio de color de texto a negro */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #888; /* Cambio de color de texto al pasar el ratón */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario */
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Evita que el textarea se amplíe fuera del contenedor */
+}
+
+.modalContent form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000; /* Cambio de color de texto a negro */
+}
+
+.modalContent form input,
+.modalContent form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  transition: border-color 0.3s;
+  color: #000; /* Cambio de color de texto a negro */
+  width: calc(100% - 22px); /* Ajusta el ancho para evitar que el textarea se desborde */
+}
+
+.modalContent form input:focus,
+.modalContent form textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.modalContent form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modalContent form button:hover {
+  background-color: #45a049;
+}
