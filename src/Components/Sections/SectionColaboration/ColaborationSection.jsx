@@ -43,7 +43,7 @@ const RightSection = () => {
         <div>
             <div className={style.rightSection}>
                 <div className={style.searchBoxContainer}>
-                    <input type="text" className={style.searchBox} placeholder="Search Teamder" />
+                    <input type="text" className={style.searchBox} placeholder="Search Group" />
                     <RiSearchEyeLine className={style.searchIcon} />
                 </div>
                 <button className={style.buttonCreate} onClick={openModal}>CREATE NEW GROUP</button>
@@ -54,14 +54,14 @@ const RightSection = () => {
                             <span className={style.closeModal} onClick={closeModal}>&times;</span>
                             <h2>Create New Group</h2>
                             <form onSubmit={handleSubmit}>
-                                <label htmlFor="groupName">Group Name:</label>
+                                <label htmlFor="groupName" className={style.label}>Group Name:</label>
                                 <input type="text" id="groupName" name="groupName" required />
 
-                                <label htmlFor="description">Description:</label>
+                                <label htmlFor="description" className={style.label}>Description:</label>
                                 <textarea id="description" name="description" required></textarea>
 
                                 {/* Campo de carga de imagen */}
-                                <label htmlFor="image">Group Image:</label>
+                                <label htmlFor="image" className={style.label}>Group Image:</label>
                                 <input type="file" id="image" name="image" onChange={handleImageChange} accept="image/*" />
 
                                 <button type="submit">Create Group</button>

@@ -49,20 +49,6 @@
     color: #117fd8;
 }
 
-.createTeamButton {
-    background-color: #1491F4;
-    color: rgb(43, 43, 43);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    cursor: pointer;
-}
-
-.createTeamButton:hover {
-    background-color: #117fd8;
-}
-
 .leftSection .profileInfo {
     display: flex;
     align-items: center;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation,useNavigate } from 'react-router-dom'; // Importa useHistory de React Router
 import { RiHomeLine,RiHomeFill, RiUserSharedLine,RiUserSharedFill, RiMessengerLine,RiMessengerFill, RiUserLine, RiSettings5Fill, RiNotification3Line,RiNotification3Fill, RiDiscussLine,RiDiscussFill, RiLogoutBoxLine, RiAddCircleLine, RiEdit2Line, RiUserFill, RiAlertLine, RiAlertFill } from 'react-icons/ri';
-import { TfiHeadphoneAlt, TfiHeadphone } from "react-icons/tfi";
+import { TfiHelp, TfiHelpAlt } from "react-icons/tfi";
 import style from "./LeftSection.module.css";
 import profile from "../../../assets/images/profile.png";
 import logoImg from "../../../assets/images/Logo2.png"
@@ -33,9 +33,8 @@ const LeftSection = () => {
                     <div className={style.navButton}>{location.pathname === "/home" ? <RiNotification3Fill /> : <RiNotification3Line />}Notifications</div>
                     <div className={style.navButton}>{location.pathname === "/home" ? <RiAlertFill /> : <RiAlertLine />} Privacy & Security</div>
                     <div className={style.navButton} onClick={() => handleNavigation('/profile')}>{location.pathname === "/profile" ? <RiUserFill /> : <RiUserLine />} Profile</div>
-                    <div className={style.navButton}>{location.pathname === "/home" ? <TfiHeadphone /> : <TfiHeadphoneAlt />}Technical support</div>
+                    <div className={style.navButton}>{location.pathname === "/home" ? <TfiHelp /> : <TfiHelpAlt />}Help</div>
                 </div>
-                <button className={style.createTeamButton}>Create a Team</button>
                 <div className={style.profileInfo} onClick={toggleMenu}>
                     <img src={profile} alt="Profile" />
                     <div>

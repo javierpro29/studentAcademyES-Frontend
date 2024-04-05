@@ -24,9 +24,9 @@ const HomePage = () => {
                 time: '1 hour ago',
                 image: signupSideImage,
                 text: 'Esto es un simple post.',
-                likes: 10,
-                comments: 5,
-                shares: 3,
+                likes: 0,
+                comments: 0,
+                shares: 0,
                 showCommentInput: false // Nuevo estado para controlar el área de comentario
             }
         ];
@@ -137,9 +137,12 @@ const HomePage = () => {
             <LeftSection />
             <div className={style.centerSection}>
                 <h2>Welcome, Dariel Restituyo</h2>
-                <button className={style.postButton} onClick={() => setShowPostModal(true)}>
-                    Nuevo Post
-                </button>
+                <div className={style.PostButtonContainer}>
+                    <button className={style.postButton} onClick={() => setShowPostModal(true)}>
+                        Nuevo Post
+                    </button>
+                </div>
+
                 <div className={style.publications}>
                     {posts.map((post, index) => (
                         <div key={post.id} className={style.publication}>
@@ -166,7 +169,6 @@ const HomePage = () => {
                                 <button className={style.interactionButton} onClick={() => handleShare(post.id)}>
                                     <FaShare /> {post.shares}
                                 </button>
-                                <button className={style.interactionButton}><FaCloudUploadAlt /></button>
                             </div>
                             {post.showCommentInput && (
                                 <div className={style.commentInputContainer}>
@@ -176,7 +178,10 @@ const HomePage = () => {
                                         value={commentText}
                                         onChange={(e) => setCommentText(e.target.value)}
                                     />
-                                    <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
+                                    <button className={style.interactionButton}><FaCloudUploadAlt /></button>
+                                    <div className={style.commentButtonFlex}>
+                                        <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
+                                    </div>
                                 </div>
 
                             )}
@@ -184,7 +189,7 @@ const HomePage = () => {
                                 <div key={commentIndex} className={style.comment}>
                                     <p>{comment.comment}</p>
                                     <button onClick={() => handleDeleteComment(post.id, commentIndex)}>
-                                        <FaTimes />
+                                        <FaTimes className={style.iconclose}/>
                                     </button>
                                 </div>
                             ))}
@@ -211,9 +216,11 @@ const HomePage = () => {
                             accept="image/*"
                             onChange={handleImageUpload}
                         />
-                        <button className={style.postButton} onClick={handlePostSubmit}>
-                            POSTEAR
-                        </button>
+                        <div className={style.postButtonContainer}>
+                            <button className={style.postButton} onClick={handlePostSubmit}>
+                                POSTEAR
+                            </button>
+                        </div>
                         {newPostImageData && (
                             <div className={style.imagePreview}>
                                 <img src={newPostImageData} alt="Preview" />
