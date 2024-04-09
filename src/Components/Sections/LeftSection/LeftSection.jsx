@@ -30,7 +30,7 @@ const LeftSection = () => {
                     <div className={style.navButton} onClick={() => handleNavigation('/colaboration')}>{location.pathname === "/colaboration" ? <RiUserSharedFill /> : <RiUserSharedLine />}Colaboration Groups</div>
                     <div className={style.navButton} onClick={() => handleNavigation('/forum')}>{location.pathname === "/forum" ? <RiDiscussFill /> : <RiDiscussLine />}Forums</div>
                     <div className={style.navButton}>{location.pathname === "/home" ? <RiMessengerFill /> : <RiMessengerLine />}Messenger</div>
-                    <div className={style.navButton}>{location.pathname === "/home" ? <RiNotification3Fill /> : <RiNotification3Line />}Notifications</div>
+                    <div className={style.navButton} onClick={() => handleNavigation('/notifications')}>{location.pathname === "/notifications" ? <RiNotification3Fill /> : <RiNotification3Line />}Notifications</div>
                     <div className={style.navButton}>{location.pathname === "/home" ? <RiAlertFill /> : <RiAlertLine />} Privacy & Security</div>
                     <div className={style.navButton} onClick={() => handleNavigation('/profile')}>{location.pathname === "/profile" ? <RiUserFill /> : <RiUserLine />} Profile</div>
                     <div className={style.navButton}>{location.pathname === "/home" ? <TfiHelp /> : <TfiHelpAlt />}Help</div>
