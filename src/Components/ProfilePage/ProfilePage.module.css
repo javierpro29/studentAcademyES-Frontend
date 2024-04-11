@@ -31,6 +31,13 @@ body {
     cursor: pointer;
 }
 
+.gobackicon{
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: -8px;
+}
+
 .gobackicon:hover {
     background-color: #333;
 }
@@ -88,7 +95,6 @@ body {
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    margin-top: -50px;
 }
 
 .editProfileButton:hover {
@@ -128,7 +134,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin-right: 20px;
-    margin-bottom: -10px;
+    margin-bottom: -11px;
     width: 200px;
 }
 
@@ -186,7 +192,7 @@ body {
 }
 
 .modalContent {
-    background-color: #333;
+    background-color: #555;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

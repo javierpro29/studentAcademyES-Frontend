@@ -8,11 +8,11 @@ const RightSection = () => {
     <div>
       <div className={style.rightSection}>
                 <div className={style.searchBoxContainer}>
-                    <input type="text" className={style.searchBox} placeholder="Search Teamder" />
+                    <input type="text" className={style.searchBox} placeholder="Search People" />
                     <RiSearchEyeLine className={style.searchIcon} />
                 </div>
                 <div className={style.teamRecommendations}>
-                    <h2 className={style.sectionTitle}>Teams for you</h2>
+                    <h2 className={style.sectionTitle}>People for you</h2>
                     {/* Equipo recomendado 1 */}
                     <div className={style.profileInfo}>
                         <img src={profile} alt="Profile" className={style.profileImage} />
@@ -20,7 +20,7 @@ const RightSection = () => {
                             <p className={style.profileName}>Dariel Restituyo</p>
                             <p className={style.profileHandle}>@restituyo</p>
                         </div>
-                        <button className={style.buttonMore}>More</button>
+                        <button className={style.buttonMore}>Follow</button>
                     </div>
                     {/* Equipo recomendado 2 */}
                     {/* Equipo recomendado 3 */}
