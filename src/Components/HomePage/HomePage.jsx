@@ -6,6 +6,7 @@ import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, 
 import style from "./HomePage.module.css";
 import signupSideImage from "../../assets/images/LoginImage.png";
 import profile from "../../assets/images/profile.png";
+// import iconImage from "../../assets/images/icon_image.svg"; 
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -138,9 +139,15 @@ const HomePage = () => {
             <div className={style.centerSection}>
                 <h2>Welcome, Dariel Restituyo</h2>
                 <div className={style.PostButtonContainer}>
-                    <button className={style.postButton} onClick={() => setShowPostModal(true)}>
-                        Nuevo Post
-                    </button>
+                    <textarea
+                        className={style.postTextarea}
+                        placeholder="What's on your mind?"
+                        onClick={() => setShowPostModal(true)}
+                        value={newPost}
+                        onChange={(e) => setNewPost(e.target.value)}
+                    />
+                    <br />
+                    <br />
                 </div>
 
                 <div className={style.publications}>
@@ -189,7 +196,7 @@ const HomePage = () => {
                                 <div key={commentIndex} className={style.comment}>
                                     <p>{comment.comment}</p>
                                     <button onClick={() => handleDeleteComment(post.id, commentIndex)}>
-                                        <FaTimes className={style.iconclose}/>
+                                        <FaTimes className={style.iconclose} />
                                     </button>
                                 </div>
                             ))}
@@ -204,18 +211,25 @@ const HomePage = () => {
                 <div className={style.postModal}>
                     <div className={style.modalContent}>
                         <span onClick={() => setShowPostModal(false)} className={style.close}>&times;</span>
-                        <textarea
-                            className={style.postTextarea}
-                            placeholder="What's on your mind?"
-                            value={newPost}
-                            onChange={(e) => setNewPost(e.target.value)}
-                        />
-                        <input
-                            id="imageUploadModal"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                        />
+                        <div className={style.PostButtonContainer}>
+                            <textarea
+                                className={style.postTextarea}
+                                placeholder="What's on your mind?"
+                                value={newPost}
+                                onChange={(e) => setNewPost(e.target.value)}
+                            />
+                            { }
+                            <label htmlFor="imageUploadModal" className={style.uploadIcon}>
+                                <FaRegImage />
+                            </label>
+                            <input
+                                id="imageUploadModal"
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageUpload}
+                                style={{ display: "none" }}
+                            />
+                        </div>
                         <div className={style.postButtonContainer}>
                             <button className={style.postButton} onClick={handlePostSubmit}>
                                 POSTEAR
@@ -232,8 +246,10 @@ const HomePage = () => {
                     </div>
                 </div>
             )}
+
         </div>
     );
 };
 
 export default HomePage;
+
