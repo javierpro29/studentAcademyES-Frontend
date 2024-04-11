@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
-import { RiFileGifLine } from 'react-icons/ri';
-import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaPoll, FaCalendarAlt, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
+import { FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaTimes } from 'react-icons/fa';
 import style from "./HomePage.module.css";
 import signupSideImage from "../../assets/images/LoginImage.png";
 import profile from "../../assets/images/profile.png";
@@ -52,9 +51,9 @@ const HomePage = () => {
                 likes: 0,
                 comments: 0,
                 shares: 0,
-                showCommentInput: false // Nuevo estado para controlar el área de comentario
+                showCommentInput: false // estado para controlar el área de comentario
             };
-            setPosts([...posts, newPostData]);
+            setPosts([newPostData, ...posts]); //new post al principio
             setNewPost('');
             setNewPostImageData(null);
             localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
@@ -138,9 +137,15 @@ const HomePage = () => {
             <div className={style.centerSection}>
                 <h2>Welcome, Dariel Restituyo</h2>
                 <div className={style.PostButtonContainer}>
-                    <button className={style.postButton} onClick={() => setShowPostModal(true)}>
-                        Nuevo Post
-                    </button>
+                    <textarea
+                        className={style.postTextarea}
+                        placeholder="What's on your mind?"
+                        onClick={() => setShowPostModal(true)}
+                        value={newPost}
+                        onChange={(e) => setNewPost(e.target.value)}
+                    />
+                    <br />
+                    <br />
                 </div>
 
                 <div className={style.publications}>
@@ -157,8 +162,8 @@ const HomePage = () => {
                                     <FaTimes />
                                 </button>
                             </div>
-                            {post.image && <img src={post.image} alt="Background" className={style.image} />}
                             <p>{post.text}</p>
+                            {post.image && <img src={post.image} alt="Background" className={style.image} />} {/* Moviendo la imagen aquí */}
                             <div className={style.interactionButtons}>
                                 <button className={style.interactionButton} onClick={() => handleLike(post.id)}>
                                     <FaRegHeart style={{ color: 'red' }} /> {post.likes}
@@ -183,13 +188,12 @@ const HomePage = () => {
                                         <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
                                     </div>
                                 </div>
-
                             )}
                             {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
                                 <div key={commentIndex} className={style.comment}>
                                     <p>{comment.comment}</p>
                                     <button onClick={() => handleDeleteComment(post.id, commentIndex)}>
-                                        <FaTimes className={style.iconclose}/>
+                                        <FaTimes className={style.iconclose} />
                                     </button>
                                 </div>
                             ))}
@@ -204,18 +208,24 @@ const HomePage = () => {
                 <div className={style.postModal}>
                     <div className={style.modalContent}>
                         <span onClick={() => setShowPostModal(false)} className={style.close}>&times;</span>
-                        <textarea
-                            className={style.postTextarea}
-                            placeholder="What's on your mind?"
-                            value={newPost}
-                            onChange={(e) => setNewPost(e.target.value)}
-                        />
-                        <input
-                            id="imageUploadModal"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                        />
+                        <div className={style.PostButtonContainer}>
+                            <textarea
+                                className={style.postTextarea}
+                                placeholder="What's on your mind?"
+                                value={newPost}
+                                onChange={(e) => setNewPost(e.target.value)}
+                            />
+                            <label htmlFor="imageUploadModal" className={style.uploadIcon}>
+                                <FaRegImage />
+                            </label>
+                            <input
+                                id="imageUploadModal"
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageUpload}
+                                style={{ display: "none" }}
+                            />
+                        </div>
                         <div className={style.postButtonContainer}>
                             <button className={style.postButton} onClick={handlePostSubmit}>
                                 POSTEAR
@@ -232,6 +242,7 @@ const HomePage = () => {
                     </div>
                 </div>
             )}
+
         </div>
     );
 };

@@ -585,3 +585,51 @@ q */
 .postButton:hover {
     background-color: #166fe5;
 }
+
+.postTextareaContainer {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.postTextarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease;
+}
+
+.postTextarea:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+.uploadIcon {
+    width: 36px;
+    height: 36px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.uploadIcon:hover {
+    background-color: #0056b3;
+}
+
+.uploadIcon svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+}
