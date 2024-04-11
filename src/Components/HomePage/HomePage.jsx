@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
-import { RiFileGifLine } from 'react-icons/ri';
-import { FaRegCalendarAlt, FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaPoll, FaCalendarAlt, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
+import { FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaTimes } from 'react-icons/fa';
 import style from "./HomePage.module.css";
 import signupSideImage from "../../assets/images/LoginImage.png";
 import profile from "../../assets/images/profile.png";
-// import iconImage from "../../assets/images/icon_image.svg"; 
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -55,7 +53,7 @@ const HomePage = () => {
                 shares: 0,
                 showCommentInput: false // Nuevo estado para controlar el área de comentario
             };
-            setPosts([...posts, newPostData]);
+            setPosts([newPostData, ...posts]); // Insertar el nuevo post al inicio del array
             setNewPost('');
             setNewPostImageData(null);
             localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
@@ -252,4 +250,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
