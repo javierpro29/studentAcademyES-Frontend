@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
@@ -11,10 +10,10 @@ import profile from "../../assets/images/profile.png";
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState('');
-    const [newPostImage, setNewPostImage] = useState(null);
+    const [newPostImageData, setNewPostImageData] = useState(null);
     const [comments, setComments] = useState([]);
-    const [showCommentInput, setShowCommentInput] = useState(false);
     const [commentText, setCommentText] = useState('');
+    const [showPostModal, setShowPostModal] = useState(false);
 
     useEffect(() => {
         const fetchedPosts = [
@@ -27,28 +26,39 @@ const HomePage = () => {
                 text: 'Esto es un simple post.',
                 likes: 10,
                 comments: 5,
-                shares: 3
+                shares: 3,
+                showCommentInput: false // Nuevo estado para controlar el área de comentario
             }
         ];
         setPosts(fetchedPosts);
+
+        const lastPost = localStorage.getItem('lastPost');
+        if (lastPost) {
+            const { text, imageData } = JSON.parse(lastPost);
+            setNewPost(text);
+            setNewPostImageData(imageData);
+        }
     }, []);
 
     const handlePostSubmit = () => {
-        if (newPost.trim() !== '' || newPostImage) {
+        if (newPost.trim() !== '' || newPostImageData) {
             const newPostData = {
                 id: posts.length + 1,
                 author: 'Dariel Restituyo',
                 handle: '@restituyo',
                 time: 'Just now',
                 text: newPost,
-                image: newPostImage,
+                image: newPostImageData,
                 likes: 0,
                 comments: 0,
-                shares: 0
+                shares: 0,
+                showCommentInput: false // Nuevo estado para controlar el área de comentario
             };
             setPosts([...posts, newPostData]);
             setNewPost('');
-            setNewPostImage(null);
+            setNewPostImageData(null);
+            localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
+            setShowPostModal(false); // Cerrar la ventana emergente después de postear
         }
     };
 
@@ -63,20 +73,25 @@ const HomePage = () => {
     };
 
     const handleComment = (postId) => {
-        setShowCommentInput(true);
+        const updatedPosts = posts.map(post => {
+            if (post.id === postId) {
+                return { ...post, showCommentInput: !post.showCommentInput };
+            }
+            return post;
+        });
+        setPosts(updatedPosts);
     };
 
     const handleCommentSubmit = (postId) => {
         if (commentText.trim() !== '') {
             const updatedPosts = posts.map(post => {
                 if (post.id === postId) {
-                    return { ...post, comments: post.comments + 1 };
+                    return { ...post, comments: post.comments + 1, showCommentInput: false };
                 }
                 return post;
             });
             setPosts(updatedPosts);
             setComments([...comments, { postId, comment: commentText }]);
-            setShowCommentInput(false);
             setCommentText('');
         }
     };
@@ -99,7 +114,7 @@ const HomePage = () => {
     const handleDeleteComment = (postId, commentIndex) => {
         const updatedPosts = posts.map(post => {
             if (post.id === postId) {
-                const updatedComments = comments.filter((_, index) => index !== commentIndex);
+                const updatedComments = comments.filter(comment => comment.postId === postId);
                 return { ...post, comments: post.comments - 1 };
             }
             return post;
@@ -110,7 +125,11 @@ const HomePage = () => {
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
-        setNewPostImage(file);
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setNewPostImageData(reader.result);
+        };
     };
 
     return (
@@ -118,48 +137,9 @@ const HomePage = () => {
             <LeftSection />
             <div className={style.centerSection}>
                 <h2>Welcome, Dariel Restituyo</h2>
-                <div className={style.topSection}>
-                    <img src={profile} alt="Profile" className={style.topprofileImage} />
-                    <input
-                        type="text"
-                        className={style.postInput}
-                        placeholder="What's on your mind?"
-                        value={newPost}
-                        onChange={(e) => setNewPost(e.target.value)}
-                    />
-                    <button className={style.postButton} onClick={handlePostSubmit}>
-                        POSTEAR
-                    </button>
-                    {newPostImage && (
-                        <div className={style.imagePreview}>
-                            <img src={URL.createObjectURL(newPostImage)} alt="Preview" />
-                            <button onClick={() => setNewPostImage(null)}>
-                                <FaTimes />
-                            </button>
-                        </div>
-                    )}
-                </div>
-                <div className={style.postIcons}>
-                    <label htmlFor="imageUpload" className={style.iconButton}>
-                        <FaRegImage />
-                        <input
-                            id="imageUpload"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            style={{ display: 'none' }}
-                        />
-                    </label>
-                    <button className={style.iconButton}><RiFileGifLine /></button>
-                    <button className={style.iconButton}><FaPoll /></button>
-                    <button className={style.iconButton}><FaCalendarAlt /></button>
-                    <button className={style.iconButton}><FaMapMarkerAlt /></button>
-                </div>
-                <span className={style.events}><FaRegCalendarAlt className={style.eventsIcon} /> Events</span>
-                <div className={style.buttonsRow}>
-                    <button className={style.currentButton}>Following</button>
-                    <button className={style.completedButton}>For you</button>
-                </div>
+                <button className={style.postButton} onClick={() => setShowPostModal(true)}>
+                    Nuevo Post
+                </button>
                 <div className={style.publications}>
                     {posts.map((post, index) => (
                         <div key={post.id} className={style.publication}>
@@ -178,7 +158,7 @@ const HomePage = () => {
                             <p>{post.text}</p>
                             <div className={style.interactionButtons}>
                                 <button className={style.interactionButton} onClick={() => handleLike(post.id)}>
-                                    <FaRegHeart /> {post.likes}
+                                    <FaRegHeart style={{ color: 'red' }} /> {post.likes}
                                 </button>
                                 <button className={style.interactionButton} onClick={() => handleComment(post.id)}>
                                     <FaRegComment /> {post.comments}
@@ -188,22 +168,17 @@ const HomePage = () => {
                                 </button>
                                 <button className={style.interactionButton}><FaCloudUploadAlt /></button>
                             </div>
-                            {showCommentInput && (
+                            {post.showCommentInput && (
                                 <div className={style.commentInputContainer}>
-                                    <input
-                                        type="text"
-                                        className={style.commentInput}
+                                    <textarea
+                                        className={style.commentTextArea}
                                         placeholder="Escribe un comentario..."
                                         value={commentText}
                                         onChange={(e) => setCommentText(e.target.value)}
-                                        onKeyDown={(e) => {
-                                            if (e.key === 'Enter') {
-                                                handleCommentSubmit(post.id);
-                                            }
-                                        }}
                                     />
                                     <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
                                 </div>
+
                             )}
                             {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
                                 <div key={commentIndex} className={style.comment}>
@@ -220,6 +195,36 @@ const HomePage = () => {
                 <hr className={style.sectionSeparator} />
             </div>
             <RightSection />
+            {showPostModal && (
+                <div className={style.postModal}>
+                    <div className={style.modalContent}>
+                        <span onClick={() => setShowPostModal(false)} className={style.close}>&times;</span>
+                        <textarea
+                            className={style.postTextarea}
+                            placeholder="What's on your mind?"
+                            value={newPost}
+                            onChange={(e) => setNewPost(e.target.value)}
+                        />
+                        <input
+                            id="imageUploadModal"
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                        />
+                        <button className={style.postButton} onClick={handlePostSubmit}>
+                            POSTEAR
+                        </button>
+                        {newPostImageData && (
+                            <div className={style.imagePreview}>
+                                <img src={newPostImageData} alt="Preview" />
+                                <button onClick={() => setNewPostImageData(null)}>
+                                    <FaTimes />
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

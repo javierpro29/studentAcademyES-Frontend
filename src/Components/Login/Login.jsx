@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import styles from "./Login.module.css";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import signupside from "../../assets/images/LoginImage.png";
 import logoImg from "../../assets/images/Logo2.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,6 +21,11 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const [loginMutation, { loading }] = useMutation(LOGIN_MUTATION);
 
@@ -90,14 +96,26 @@ const Login = () => {
               onChange={handleEmailChange}
             />
             {emailError && <div className={styles.error}>{emailError}</div>}
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            {passwordError && <div className={styles.error}>{passwordError}</div>}
+            
+            <div className={styles.passwordContainer}>
+
+              <input
+                className={styles.input}
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+              {passwordError && <div className={styles.error}>{passwordError}</div>}
+              <div
+                className={styles.passwordToggleIcon}
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ? <RiEyeOffLine /> : <RiEyeLine />}
+              </div>
+
+            </div>
+
             <div className={styles.rememberMeContainer}>
               <input
                 type="checkbox"
