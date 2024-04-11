@@ -8,6 +8,8 @@ import ProfileGroup from '../Components/ProfileGroupPage/ProfileGroup';
 import Colaboration from '../Components/ColaborationPage/ColaborationGroup';
 import Forum from '../Components/ForumPage/ForumPage';
 import Notification from '../Components/NotificationPage/NotificationPage';
+import Messenger from '../Components/MessengerPage/MessengerPage';
+import Message from '../Components/MessengerPage/MessagePage';
 
 
 export const AppRouter = () => {
@@ -23,6 +25,8 @@ export const AppRouter = () => {
             <Route path="/profilegroup" element={<ProfileGroup/>}/>
             <Route path="/forum" element={<Forum/>}/>
             <Route path="/notifications" element={<Notification/>}/>
+            <Route path="/messenger" element={<Messenger/>}/>
+            <Route path="/message" element={<Message/>}/>
         </Routes>
     )
 }

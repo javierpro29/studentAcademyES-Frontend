@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { RiSearchEyeLine } from 'react-icons/ri';
-import style from "./NotificationSection.module.css";
+import style from "./MessageSection.module.css";
 import profile from "../../../assets/images/profile.png";
 
 const MessageSection = () => {
@@ -23,7 +23,7 @@ const MessageSection = () => {
                 <div className={style.teamRecommendations}>
                     <h2 className={style.sectionTitle}>Messages</h2>
                     {/* Equipo recomendado 1 */}
-                    <div className={style.profileInfo} onClick={() => handleNavigation('/profilegroup')}>
+                    <div className={style.profileInfo} onClick={() => handleNavigation('/message')}>
                         <img src={profile} alt="Profile" className={style.profileImage} />
                         <div className={style.profileDetails}>
                             <p className={style.profileName}>Name Lastname</p>
