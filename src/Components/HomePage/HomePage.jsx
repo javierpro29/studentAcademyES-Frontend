@@ -51,9 +51,9 @@ const HomePage = () => {
                 likes: 0,
                 comments: 0,
                 shares: 0,
-                showCommentInput: false // Nuevo estado para controlar el área de comentario
+                showCommentInput: false // estado para controlar el área de comentario
             };
-            setPosts([newPostData, ...posts]); // Insertar el nuevo post al inicio del array
+            setPosts([newPostData, ...posts]); //new post al principio
             setNewPost('');
             setNewPostImageData(null);
             localStorage.setItem('lastPost', JSON.stringify({ text: newPost, imageData: newPostImageData }));
@@ -162,8 +162,8 @@ const HomePage = () => {
                                     <FaTimes />
                                 </button>
                             </div>
-                            {post.image && <img src={post.image} alt="Background" className={style.image} />}
                             <p>{post.text}</p>
+                            {post.image && <img src={post.image} alt="Background" className={style.image} />} {/* Moviendo la imagen aquí */}
                             <div className={style.interactionButtons}>
                                 <button className={style.interactionButton} onClick={() => handleLike(post.id)}>
                                     <FaRegHeart style={{ color: 'red' }} /> {post.likes}
@@ -188,7 +188,6 @@ const HomePage = () => {
                                         <button className={style.commentButton} onClick={() => handleCommentSubmit(post.id)}>Enviar</button>
                                     </div>
                                 </div>
-
                             )}
                             {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
                                 <div key={commentIndex} className={style.comment}>
@@ -216,7 +215,6 @@ const HomePage = () => {
                                 value={newPost}
                                 onChange={(e) => setNewPost(e.target.value)}
                             />
-                            { }
                             <label htmlFor="imageUploadModal" className={style.uploadIcon}>
                                 <FaRegImage />
                             </label>
