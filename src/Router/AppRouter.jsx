@@ -11,6 +11,7 @@ import Notification from '../Components/NotificationPage/NotificationPage';
 import Messenger from '../Components/MessengerPage/MessengerPage';
 import Message from '../Components/MessengerPage/MessagePage';
 import Help from '../Components/HelpPage/HelpPage';
+import PrivacityAndSecurity from '../Components/PrivacitySecurityPage/PrivacitySecurityPage';
 
 
 export const AppRouter = () => {
@@ -29,6 +30,7 @@ export const AppRouter = () => {
             <Route path="/messenger" element={<Messenger/>}/>
             <Route path="/message" element={<Message/>}/>
             <Route path="/help" element={<Help/>}/>
+            <Route path="/PrivacityandSecurity" element={<PrivacityAndSecurity/>}/>
         </Routes>
     )
 }

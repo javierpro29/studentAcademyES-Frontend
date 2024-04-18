@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
 import style from "./HelpPage.module.css";
-import { RiArrowLeftLine, RiQuestionLine } from 'react-icons/ri';
+import { RiArrowLeftLine } from 'react-icons/ri';
+import { TiMessages } from "react-icons/ti";
 
 const HelpPage = () => {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ const HelpPage = () => {
                 
                 {faqs.map(faq => (
                     <div className={style.faqItem}>
-                        <RiQuestionLine className={style.faqIcon} />
+                        <TiMessages className={style.faqIcon} />
                         <div>
                             <p className={style.faqQuestion}>{faq.question}</p>
                             <p className={style.faqAnswer}>{faq.answer}</p>
