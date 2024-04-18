@@ -10,6 +10,7 @@ import Forum from '../Components/ForumPage/ForumPage';
 import Notification from '../Components/NotificationPage/NotificationPage';
 import Messenger from '../Components/MessengerPage/MessengerPage';
 import Message from '../Components/MessengerPage/MessagePage';
+import Help from '../Components/HelpPage/HelpPage';
 
 
 export const AppRouter = () => {
@@ -27,6 +28,7 @@ export const AppRouter = () => {
             <Route path="/notifications" element={<Notification/>}/>
             <Route path="/messenger" element={<Messenger/>}/>
             <Route path="/message" element={<Message/>}/>
+            <Route path="/help" element={<Help/>}/>
         </Routes>
     )
 }

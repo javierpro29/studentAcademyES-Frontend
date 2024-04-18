@@ -33,7 +33,7 @@ const LeftSection = () => {
                     <div className={style.navButton} onClick={() => handleNavigation('/notifications')}>{location.pathname === "/notifications" ? <RiNotification3Fill /> : <RiNotification3Line />}Notifications</div>
                     <div className={style.navButton}>{location.pathname === "/home" ? <RiAlertFill /> : <RiAlertLine />} Privacy & Security</div>
                     <div className={style.navButton} onClick={() => handleNavigation('/profile')}>{location.pathname === "/profile" ? <RiUserFill /> : <RiUserLine />} Profile</div>
-                    <div className={style.navButton}>{location.pathname === "/home" ? <TfiHelp /> : <TfiHelpAlt />}Help</div>
+                    <div className={style.navButton} onClick={() => handleNavigation('/help')}>{location.pathname === "/help" ? <TfiHelp /> : <TfiHelpAlt />}Help</div>
                 </div>
                 <div className={style.profileInfo} onClick={toggleMenu}>
                     <img src={profile} alt="Profile" />
