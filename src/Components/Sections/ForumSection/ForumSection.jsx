@@ -10,6 +10,8 @@ const ForumSection = () => {
     const [myForums, setMyForums] = useState([]);
     const [otherForums, setOtherForums] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showAllMyForums, setShowAllMyForums] = useState(false);
+    const [showAllOtherForums, setShowAllOtherForums] = useState(false);
 
     useEffect(() => {
         const storedMyForums = JSON.parse(localStorage.getItem('myForums')) || [];
@@ -30,8 +32,8 @@ const ForumSection = () => {
         const updatedMyForums = [...myForums, newForum];
         setMyForums(updatedMyForums);
         localStorage.setItem('myForums', JSON.stringify(updatedMyForums));
-        toggleCreateForumModal();
         navigate(`/forum/${newForum.id}`);
+        toggleCreateForumModal();
     };
 
     return (
@@ -45,7 +47,7 @@ const ForumSection = () => {
                 <CreateForumModal show={showModal} onClose={toggleCreateForumModal} onCreateForum={handleCreateForum} />
                 <div className={style.teamRecommendations}>
                     <h2 className={style.sectionTitle}>Mis Foros</h2>
-                    {myForums.map((forum) => (
+                    {myForums.slice(0, showAllMyForums ? myForums.length : 4).map((forum) => (
                         <div
                             key={forum.id}
                             className={style.profileInfo}
@@ -58,11 +60,15 @@ const ForumSection = () => {
                             </div>
                         </div>
                     ))}
-                    {myForums.length > 0 && <span className={style.showMore}>Mostrar más...</span>}
+                    {myForums.length > 4 && (
+                        <span className={style.showMore} onClick={() => setShowAllMyForums(!showAllMyForums)}>
+                            {showAllMyForums ? 'Mostrar menos...' : 'Mostrar más...'}
+                        </span>
+                    )}
                 </div>
                 <div className={style.hashtagsRecommendations}>
                     <h2 className={style.sectionTitle}>Otros foros interesantes</h2>
-                    {otherForums.map((forum) => (
+                    {otherForums.slice(0, showAllOtherForums ? otherForums.length : 4).map((forum) => (
                         <div
                             key={forum.id}
                             className={style.profileInfo}
@@ -75,7 +81,11 @@ const ForumSection = () => {
                             </div>
                         </div>
                     ))}
-                    {otherForums.length > 0 && <span className={style.showMore}>Mostrar más...</span>}
+                    {otherForums.length > 4 && (
+                        <span className={style.showMore} onClick={() => setShowAllOtherForums(!showAllOtherForums)}>
+                            {showAllOtherForums ? 'Mostrar menos...' : 'Mostrar más...'}
+                        </span>
+                    )}
                 </div>
             </div>
         </div>

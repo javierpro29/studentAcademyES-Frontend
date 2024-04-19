@@ -23,6 +23,7 @@ const CreateForumModal = ({ show, onClose, onCreateForum }) => {
             setDescription('');
             setImageFile(null);
             setImagePreview('');
+            onClose(); // Cerrar el modal después de crear el foro
         }
     };
 
