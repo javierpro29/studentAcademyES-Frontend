@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { RiSearchEyeLine } from 'react-icons/ri';
-import CreateForumModal from "../../ForumPage/CreateForumModal"; // Corrección en la importación
+import CreateForumModal from "../../ForumPage/CreateForumModal";
 import style from "./ForumSection.module.css";
 import profile from "../../../assets/images/profile.png";
 
@@ -22,7 +22,7 @@ const ForumSection = () => {
         navigate(route);
     };
 
-    const toggleModal = () => {
+    const toggleCreateForumModal = () => {
         setShowModal(!showModal);
     };
 
@@ -30,20 +30,21 @@ const ForumSection = () => {
         const updatedMyForums = [...myForums, newForum];
         setMyForums(updatedMyForums);
         localStorage.setItem('myForums', JSON.stringify(updatedMyForums));
-        toggleModal();
+        toggleCreateForumModal();
+        navigate(`/forum/${newForum.id}`);
     };
 
     return (
         <div>
             <div className={style.rightSection}>
                 <div className={style.searchBoxContainer}>
-                    <input type="text" className={style.searchBox} placeholder="Search Discussion" />
+                    <input type="text" className={style.searchBox} placeholder="Buscar Discusión" />
                     <RiSearchEyeLine className={style.searchIcon} />
                 </div>
-                <button className={style.buttonCreate} onClick={toggleModal}>CREATE NEW FORUM</button>
-                <CreateForumModal show={showModal} onClose={toggleModal} onCreateForum={handleCreateForum} /> {/* Corrección en el nombre del componente */}
+                <button className={style.buttonCreate} onClick={toggleCreateForumModal}>CREAR NUEVO FORO</button>
+                <CreateForumModal show={showModal} onClose={toggleCreateForumModal} onCreateForum={handleCreateForum} />
                 <div className={style.teamRecommendations}>
-                    <h2 className={style.sectionTitle}>My Forums</h2>
+                    <h2 className={style.sectionTitle}>Mis Foros</h2>
                     {myForums.map((forum) => (
                         <div
                             key={forum.id}
@@ -57,10 +58,10 @@ const ForumSection = () => {
                             </div>
                         </div>
                     ))}
-                    {myForums.length > 0 && <span className={style.showMore}>Show more...</span>}
+                    {myForums.length > 0 && <span className={style.showMore}>Mostrar más...</span>}
                 </div>
                 <div className={style.hashtagsRecommendations}>
-                    <h2 className={style.sectionTitle}>Another forums interesting</h2>
+                    <h2 className={style.sectionTitle}>Otros foros interesantes</h2>
                     {otherForums.map((forum) => (
                         <div
                             key={forum.id}
@@ -74,7 +75,7 @@ const ForumSection = () => {
                             </div>
                         </div>
                     ))}
-                    {otherForums.length > 0 && <span className={style.showMore}>Show more...</span>}
+                    {otherForums.length > 0 && <span className={style.showMore}>Mostrar más...</span>}
                 </div>
             </div>
         </div>

@@ -1,92 +1,98 @@
 .rightSection {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #f5f5f5;
-    border-radius: 0.5rem;
-  }
-  
-  .searchBoxContainer {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchBoxContainer {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .searchBox {
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+}
+
+.searchBox {
     flex: 1;
+    background-color: transparent;
     border: none;
     outline: none;
-    font-size: 1rem;
-  }
-  
-  .searchIcon {
-    font-size: 1.5rem;
-    color: #aaa;
-    cursor: pointer;
-  }
-  
-  .buttonCreate {
-    background-color: #0077b6;
+    color: #fff;
+    font-size: 16px;
+}
+
+.searchIcon {
+    color: #fff;
+    font-size: 20px;
+}
+
+.buttonCreate {
+    background-color: #4caf50;
     color: #fff;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .buttonCreate:hover {
-    background-color: #005d8c;
-  }
-  
-  .sectionTitle {
-    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.buttonCreate:hover {
+    background-color: #45a049;
+}
+
+.sectionTitle {
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .profileInfo {
+    margin-bottom: 10px;
+}
+
+.profileInfo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .profileInfo:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .profileImage {
-    width: 3rem;
-    height: 3rem;
+}
+
+.profileInfo:hover {
+    background-color: #3d3d3d;
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .profileDetails {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .profileName {
+    margin-right: 10px;
+}
+
+.profileDetails {
+    flex: 1;
+}
+
+.profileName {
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 0.2rem;
-  }
-  
-  .profileHandle {
-    color: #777;
-    font-size: 0.9rem;
-  }
-  
-  .showMore {
-    color: #0077b6;
+    margin-bottom: 4px;
+}
+
+.profileHandle {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.showMore {
+    display: block;
+    color: #4caf50;
+    font-size: 14px;
+    text-decoration: underline;
     cursor: pointer;
-  }
+    margin-top: 10px;
+}
