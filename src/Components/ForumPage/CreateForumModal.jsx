@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import style from './CreateForumModal.module.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const CreateForumModal = ({ show, onClose, onCreateForum }) => {
     const [title, setTitle] = useState('');
@@ -80,10 +82,11 @@ const CreateForumModal = ({ show, onClose, onCreateForum }) => {
                                         required
                                     />
                                     {imagePreview && (
-                                        <img
+                                        <LazyLoadImage
                                             src={imagePreview}
                                             alt="Imagen de Portada"
                                             className={style.imagePreview}
+                                            effect="opacity"
                                         />
                                     )}
                                 </div>

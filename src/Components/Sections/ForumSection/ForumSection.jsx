@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { RiSearchEyeLine } from 'react-icons/ri';
 import CreateForumModal from "../../ForumPage/CreateForumModal";
 import style from "./ForumSection.module.css";
-import profile from "../../../assets/images/profile.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const ForumSection = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const ForumSection = () => {
     };
 
     const handleCreateForum = (newForum) => {
-        const updatedMyForums = [...myForums, newForum];
+        const updatedMyForums = [...myForums, { ...newForum, forumName: newForum.title }];
         setMyForums(updatedMyForums);
         localStorage.setItem('myForums', JSON.stringify(updatedMyForums));
         navigate(`/forum/${newForum.id}`);
@@ -53,7 +54,12 @@ const ForumSection = () => {
                             className={style.profileInfo}
                             onClick={() => handleNavigation(`/forum/${forum.id}`)}
                         >
-                            <img src={forum.imageUrl} alt="Forum" className={style.profileImage} />
+                            <LazyLoadImage
+                                src={forum.imageUrl}
+                                alt="Forum"
+                                className={style.profileImage}
+                                effect="opacity"
+                            />
                             <div className={style.profileDetails}>
                                 <p className={style.profileName}>{forum.title}</p>
                                 <p className={style.profileHandle}>{forum.lastActivity}</p>
@@ -74,7 +80,12 @@ const ForumSection = () => {
                             className={style.profileInfo}
                             onClick={() => handleNavigation(`/forum/${forum.id}`)}
                         >
-                            <img src={forum.imageUrl} alt="Forum" className={style.profileImage} />
+                            <LazyLoadImage
+                                src={forum.imageUrl}
+                                alt="Forum"
+                                className={style.profileImage}
+                                effect="opacity"
+                            />
                             <div className={style.profileDetails}>
                                 <p className={style.profileName}>{forum.title}</p>
                                 <p className={style.profileHandle}>{forum.lastActivity}</p>

@@ -1,3 +1,4 @@
+// ForumPage.js
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import LeftSection from '../Sections/LeftSection/LeftSection';
@@ -20,7 +21,10 @@ const ForumPage = () => {
         const currentForum = storedForums.find((forum) => forum.id === forumId);
         const forumPosts = storedPosts.filter((post) => post.forumId === forumId);
         const allPosts = JSON.parse(localStorage.getItem('posts')) || [];
-        const lastFivePosts = allPosts.slice(-5);
+        const lastFivePosts = allPosts.map((post) => {
+            const forum = storedForums.find((f) => f.id === post.forumId);
+            return { ...post, forumName: forum ? forum.forumName : 'Unknown Forum' };
+        }).slice(-5);
         setForum(currentForum);
         setPosts(forumPosts);
         setLatestPosts(lastFivePosts);
@@ -35,9 +39,9 @@ const ForumPage = () => {
     };
 
     const handleCreatePost = (newPost) => {
-        const updatedPosts = [...posts, { ...newPost, forumId }];
+        const updatedPosts = [...posts, { ...newPost, forumId, forumName: forum.forumName }];
         setPosts(updatedPosts);
-        localStorage.setItem('posts', JSON.stringify([...JSON.parse(localStorage.getItem('posts')), newPost]));
+        localStorage.setItem('posts', JSON.stringify([...JSON.parse(localStorage.getItem('posts')), { ...newPost, forumId, forumName: forum.forumName }]));
         togglePostModal();
     };
 
