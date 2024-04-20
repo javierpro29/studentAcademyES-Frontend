@@ -1,4 +1,4 @@
-/* Estilos Generales*/
+/* Estilos Generales */
 
 html,
 body {
@@ -15,19 +15,18 @@ body {
     /* Centro el contenido horizontalmente */
     align-items: flex-start;
     /* Alínea el contenido arriba */
-    min-height: 90dvh;
+    min-height: 90vh;
     /* Ajustar la altura mínima de la página */
 }
 
-/* Estilos para la Seccion Central*/
+/* Estilos para la Seccion Central */
 
 .centerSection {
     padding: 20px;
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
     overflow-y: auto;
-    max-width: 800px;
-    min-height: 95dvh;
+    max-width: 30%; /* Cambio de 600px a 30% */
     width: 100%;
     color: #fff;
 }
@@ -37,18 +36,18 @@ body {
     align-items: center;
     color: #fff;
     cursor: pointer;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #9f8585;
     padding: 5px 0px;
 }
 
-.gobackicon{
+.gobackicon {
     padding: 5px;
     border-radius: 50%;
     margin-right: 10px;
     margin-bottom: -8px;
 }
 
-.gobackicon:hover{
+.gobackicon:hover {
     background-color: #333;
 }
 
@@ -71,12 +70,129 @@ body {
 }
 
 .centerSection .notification {
-    min-height: 90dvh;
+    min-height: 90vh;
     margin: 0 auto;
     display: grid;
     place-content: center;
 }
 
-.centerSection .h3{
+.centerSection .h3 {
     margin-top: -12px;
+}
+
+/* Estilos específicos para el componente MessagePage */
+
+.topSection {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.topImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.subtitle {
+    margin: 0;
+    color: #666;
+}
+
+.publications {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.publication {
+    margin-bottom: 20px;
+}
+
+.messageContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+.profileInfo {
+    margin-right: 10px;
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.messageBox {
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.userMessage .messageBox {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+}
+
+.friendMessage .messageBox {
+    align-self: flex-start;
+    background-color: #e6e6e6;
+}
+
+.messageTriangle {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #f2f2f2;
+}
+
+.messageContent {
+    margin: 0;
+}
+
+.postTime {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.footer {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.footer form {
+    display: flex;
+    align-items: center;
+}
+
+.footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    background-color: #0056b3;
 }
