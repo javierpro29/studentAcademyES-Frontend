@@ -45,6 +45,30 @@ const ForumPage = () => {
         togglePostModal();
     };
 
+    // Agregar un foro ficticio para propósitos de prueba
+    useEffect(() => {
+        // Datos de ejemplo para el foro ficticio
+        const fakeForum = {
+            id: 'fakeForum123',
+            title: 'Foro de Prueba',
+            description: 'Este es un foro de prueba para propósitos de desarrollo.',
+            imageUrl: 'https://via.placeholder.com/150', // URL de una imagen de relleno
+        };
+        setForum(fakeForum);
+    }, []);
+
+    // Agregar una publicación de ejemplo para propósitos de prueba
+    useEffect(() => {
+        // Datos de ejemplo para la publicación ficticia
+        const fakePost = {
+            id: 'fakePost123',
+            title: 'Publicación de Ejemplo',
+            content: 'Este es el contenido de la publicación de ejemplo.',
+            userImageUrl: 'https://via.placeholder.com/150', // URL de una imagen de relleno
+        };
+        setPosts([fakePost]);
+    }, []);
+
     return (
         <div className={style.homePage}>
             <LeftSection />
