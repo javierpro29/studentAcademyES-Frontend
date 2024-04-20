@@ -1,0 +1,104 @@
+.landing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.leftContent {
+    flex: 1;
+    max-width: 900px;
+}
+
+.rightContent {
+    width: 50%;
+    max-width: 600px;
+    height: auto;
+}
+
+.logo {
+    width: 120px; /* Tamaño del logo */
+    margin-right: 10px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    font-size: 7.1rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.registerButton, .loginButton {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.registerButton {
+    background-color: #117fd8;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.registerButton:hover {
+    background-color: #0c71c4;
+}
+
+.loginButton {
+    background-color: #fff;
+    color: #117fd8;
+}
+
+.loginButton:hover {
+    background-color: #e0e0e0;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1rem;
+}

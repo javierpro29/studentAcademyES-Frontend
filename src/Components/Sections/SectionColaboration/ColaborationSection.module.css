@@ -1,0 +1,285 @@
+/* Estilos para la Seccion Derecha*/
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 300px;
+  color: #fff;
+}
+
+.rightSection .searchBoxContainer {
+  position: relative;
+  width: 100%;
+}
+
+.rightSection .searchBox {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 1px solid rgb(167, 167, 167);
+  transition: border-bottom-color 0.3s;
+}
+
+.rightSection .searchBox:focus {
+  outline: none;
+  border-bottom-color: #1491F4;
+}
+
+.rightSection .searchIcon {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  top: 23px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.rightSection .teamRecommendations,
+.rightSection .hashtagsRecommendations {
+  width: 100%;
+  margin-bottom: 30px;
+  border-top: 1px solid rgb(167, 167, 167);
+}
+
+.rightSection .sectionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rightSection .teamRecommendations .team,
+.rightSection .hashtagsRecommendations .hashtag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+}
+
+.rightSection .teamRecommendations .team img,
+.rightSection .hashtagsRecommendations .hashtag img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.rightSection .teamRecommendations .team .name,
+.rightSection .hashtagsRecommendations .hashtag .name {
+  font-weight: bold;
+}
+
+.rightSection .teamRecommendations .team .handle,
+.rightSection .hashtagsRecommendations .hashtag .handle {
+  font-size: 12px;
+  color: #888;
+}
+
+.rightSection .profileInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 10px;
+}
+
+.rightSection .profileInfo:hover {
+  background-color: #5c5c5c;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.rightSection .profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.rightSection .profileInfo .profileName {
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+.rightSection .profileInfo .profileHandle {
+  color: #888;
+  margin-top: 0;
+}
+
+.rightSection .buttonMore {
+  background-color: #1491F4;
+  color: rgb(43, 43, 43);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rightSection .buttonCreate {
+  text-align: start;
+  background-color: #1491F4;
+  color: rgb(43, 43, 43);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.rightSection .buttonMore:hover {
+  background-color: #117fd8;
+}
+
+.rightSection .showMore {
+  color: #1491F4;
+  cursor: pointer;
+}
+
+.rightSection .hashtagsDetails {
+  border-bottom: 1px solid #888;
+  margin-bottom: 10px;
+}
+
+.rightSection .hashtagsDetails .hashtags {
+  font-weight: bold;
+  margin-bottom: -12px;
+}
+
+.rightSection .hashtagsDetails .teams {
+  color: #888;
+}
+
+
+/* Estilos para el fondo del modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos para el contenido del modal */
+.modalContent {
+  background-color: #444;
+  margin: 15% auto;
+  padding: 20px;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: modalFadeIn 0.3s ease-out;
+  color: #000;
+  /* Cambio de color de texto a negro */
+}
+
+/* Animación de aparecer */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modalContent h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+/* Estilos para el botón de cierre */
+.closeModal {
+  color: #fff;
+  /* Cambio de color de texto a negro */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #888;
+  /* Cambio de color de texto al pasar el ratón */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario */
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Evita que el textarea se amplíe fuera del contenedor */
+}
+
+.modalContent form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+  /* Cambio de color de texto a negro */
+}
+
+.modalContent form input,
+.modalContent form textarea {
+  padding: 10px;
+  border: none;
+  background-color: #333;
+  border-radius: 5px;
+  margin-top: 5px;
+  transition: border-color 0.3s;
+  color: #fff;
+  /* Cambio de color de texto a negro */
+  width: calc(100% - 22px);
+  /* Ajusta el ancho para evitar que el textarea se desborde */
+}
+
+.modalContent form input:focus,
+.modalContent form textarea:focus {
+  border: 1px solid;
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.modalContent form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modalContent form button:hover {
+  background-color: #45a049;
+}

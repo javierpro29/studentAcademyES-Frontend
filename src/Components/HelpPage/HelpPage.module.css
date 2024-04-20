@@ -1,0 +1,104 @@
+/* Estilos Generales*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    /* Fondo de la sección */
+}
+
+.homePage {
+    display: flex;
+    justify-content: center;
+    /* Centro el contenido horizontalmente */
+    align-items: flex-start;
+    /* Alínea el contenido arriba */
+    min-height: 90dvh;
+    /* Ajustar la altura mínima de la página */
+}
+
+/* Estilos para la Seccion Central*/
+
+.centerSection {
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    max-width: 800px;
+    min-height: 95dvh;
+    width: 100%;
+    color: #fff;
+}
+
+.goBackButton {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #666;
+    padding: 5px 0px;
+}
+
+.gobackicon{
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: -8px;
+}
+
+.gobackicon:hover{
+    background-color: #333;
+}
+
+.centerSection .iconButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.centerSection .iconButton:hover {
+    color: #1491F4;
+}
+
+.centerSection h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Continuación de los estilos existentes */
+
+.faqTitle {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.faqItem {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.faqIcon {
+    color: #1491F4;
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.faqQuestion {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.faqAnswer {
+    color: #888;
+    font-size: 16px;
+    margin-top: 5px;
+}

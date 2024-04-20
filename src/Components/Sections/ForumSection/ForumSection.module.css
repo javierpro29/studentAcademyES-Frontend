@@ -1,0 +1,98 @@
+.rightSection {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchBoxContainer {
+    display: flex;
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+}
+
+.searchBox {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.searchIcon {
+    color: #fff;
+    font-size: 20px;
+}
+
+.buttonCreate {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.buttonCreate:hover {
+    background-color: #45a049;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profileInfo:hover {
+    background-color: #3d3d3d;
+}
+
+.profileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profileDetails {
+    flex: 1;
+}
+
+.profileName {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.profileHandle {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.showMore {
+    display: block;
+    color: #4caf50;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}

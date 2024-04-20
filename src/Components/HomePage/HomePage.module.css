@@ -1,0 +1,635 @@
+/* Estilos Generales*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    /* Fondo de la sección */
+}
+
+.homePage {
+    display: flex;
+    justify-content: center;
+    /* Centro el contenido horizontalmente */
+    align-items: flex-start;
+    /* Alínea el contenido arriba */
+    min-height: 100dvh;
+    /* Ajustar la altura mínima de la página */
+}
+
+/* Estilos para la Sección Central*/
+
+.centerSection {
+    flex-grow: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    max-width: 800px;
+    width: 100%;
+    color: #fff;
+}
+
+.centerSection .topSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    /* Añadido para posicionar la previsualización de imagen */
+}
+
+.centerSection .topprofileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.centerSection .postInput {
+    width: calc(100% - 150px);
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    transition: border-bottom-color 0.3s;
+}
+
+.centerSection .postInput::placeholder {
+    color: #ccc;
+}
+
+.centerSection .postInput:focus {
+    outline: none;
+    border-bottom-color: #1491F4;
+}
+
+.centerSection .postButton {
+    background-color: #1491F4;
+    color: rgb(43, 43, 43);
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.centerSection .postButton:hover {
+    background-color: #0e6ebd;
+}
+
+.centerSection .imagePreview {
+    /* posicion de la imagen  */
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    right: 0;
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.centerSection .imagePreview img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.centerSection .imagePreview button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.centerSection .imagePreview button:hover {
+    color: #1491F4;
+}
+
+.centerSection .postIcons {
+    margin-left: 25px;
+    margin-top: 10px;
+    /* Ajuste para separar los iconos del input */
+}
+
+.centerSection .iconButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    position: relative;
+    /* Añadido para posicionar el input de archivo */
+}
+
+.centerSection .iconButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .iconButton input[type="file"] {
+    position: absolute;
+    /* Posiciona el input de archivo encima del botón */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* Hace que el input de archivo sea invisible */
+    cursor: pointer;
+}
+
+.centerSection h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.centerSection .events {
+    display: flex;
+    font-size: 21px;
+    margin-bottom: 20px;
+    justify-content: end;
+}
+
+.centerSection .eventsIcon {
+    font-size: 25px;
+}
+
+.centerSection .buttonsRow {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    width: 100%;
+}
+
+.centerSection .currentButton,
+.centerSection .completedButton {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: -10px;
+    width: 200px;
+}
+
+.centerSection .currentButton:focus,
+.centerSection .completedButton:focus {
+    outline: none;
+}
+
+.centerSection .currentButton:hover,
+.centerSection .completedButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .currentButton::after,
+.centerSection .completedButton::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #1491F4;
+    transition: width 0.3s ease;
+}
+
+.centerSection .currentButton:focus::after,
+.centerSection .completedButton:focus::after {
+    width: 100%;
+}
+
+.centerSection .publications {
+    overflow: hidden;
+    /* Oculta el contenido que excede la altura máxima */
+}
+
+.centerSection .publication {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    /* Añadido para posicionar el botón de eliminar */
+}
+
+.centerSection .publication p {
+    color: #fff;
+    margin-top: 10px;
+}
+
+.centerSection .profileInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.centerSection .profileImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.centerSection .profileInfo .profileName {
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.centerSection .profileInfo .profileHandle {
+    color: #888;
+    margin-top: 0;
+}
+
+.centerSection .postTime {
+    margin-left: auto;
+    color: #888;
+    font-size: 12px;
+}
+
+.deletePostButton {
+    position: absolute;
+    /* Posiciona el botón de eliminar en la esquina superior derecha */
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.deletePostButton:hover {
+    color: #1491F4;
+}
+
+.image {
+    width: 100%;
+    max-height: 450px;
+    height: auto;
+    font-size: 40px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.centerSection .interactionButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.centerSection .interactionButton {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.centerSection .interactionButton svg {
+    margin-right: 5px;
+}
+
+.centerSection .interactionButton:hover {
+    color: #1491F4;
+}
+
+.sectionSeparator {
+    margin-bottom: 30px;
+}
+
+.centerSection .commentInput {
+    width: calc(100% - 60px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.centerSection .commentInput:focus {
+    outline: none;
+    border-color: #1491F4;
+}
+
+.centerSection .commentButtonFlex {
+    display: flex;
+    justify-content: end;
+}
+
+.centerSection .commentButton {
+    background-color: #1491F4;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.centerSection .commentButton:hover {
+    background-color: #0e6ebd;
+}
+
+
+
+/* 
+dsddddd
+q */
+
+
+.commentInput {
+    width: calc(100% - 60px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.commentInput:focus {
+    outline: none;
+    border-color: #1491F4;
+}
+
+.commentButton {
+    background-color: #1491F4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.commentButton:hover {
+    background-color: #0e6ebd;
+}
+
+.commentInputContainer {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.commentTextArea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.commentTextArea:focus {
+    outline: none;
+    border-color: #1491F4;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.comment button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: #fff;
+}
+
+.comment button:hover {
+    color: #1491F4;
+}
+
+.iconclose {
+    margin: 0;
+    padding: 0;
+}
+
+.commentTextArea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    resize: vertical;
+    font-size: 20px;
+    /* Tamaño de fuente inicial */
+    line-height: 1.5;
+    /* Espaciado entre líneas */
+    font-size: 14px;
+}
+
+.commentTextArea:focus {
+    outline: none;
+    border-color: #1491F4;
+}
+
+
+/* Estilos para la ventana emergente */
+.postModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.modalContent {
+    background-color: #333;
+    margin: 15% auto;
+    padding: 20px;
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para el textarea */
+.postTextarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+    /* Agregar esta línea */
+}
+
+/* Estilos para el botón de "POSTEAR" */
+.postButton {
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.postButton:hover {
+    background-color: #166fe5;
+}
+
+/* Estilos para la previsualización de la imagen */
+.imagePreview {
+    position: relative;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.imagePreview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.imagePreview button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.imagePreview button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para el botón de "Nuevo Post" */
+.postButtonContainer {
+    display: flex;
+    justify-content: end;
+}
+
+.postButton {
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.postButton:hover {
+    background-color: #166fe5;
+}
+
+.postTextareaContainer {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.postTextarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 10px;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease;
+}
+
+.postTextarea:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+.uploadIcon {
+    width: 36px;
+    height: 36px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.uploadIcon:hover {
+    background-color: #0056b3;
+}
+
+.uploadIcon svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+}

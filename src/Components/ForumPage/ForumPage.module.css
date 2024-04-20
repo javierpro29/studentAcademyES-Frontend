@@ -1,0 +1,286 @@
+/* Estilos Generales*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    /* Fondo de la sección */
+}
+
+.homePage {
+    display: flex;
+    justify-content: center;
+    /* Centro el contenido horizontalmente */
+    align-items: flex-start;
+    /* Alínea el contenido arriba */
+    min-height: 100dvh;
+    /* Ajustar la altura mínima de la página */
+}
+
+/* Estilos para la Seccion Central*/
+
+.centerSection {
+    flex-grow: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    max-width: 800px;
+    width: 100%;
+    color: #fff;
+}
+
+.goBackButton {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.gobackicon{
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: -8px;
+}
+
+.gobackicon:hover{
+    background-color: #333;
+}
+
+.centerSection .iconButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.centerSection .iconButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .topSection {
+    display: flex;
+    align-items: center;
+}
+
+.centerSection .topImage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85px;
+    height: 85px;
+    border-radius: 10%;
+    margin-right: 10px;
+}
+
+.centerSection .topSection .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.centerSection .topSection .subtitle {
+    font-weight: lighter;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: -5px;
+}
+
+.centerSection .topSection .description {
+    color: #888;
+    margin-top: 0;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.centerSection .response  {
+    display: flex;
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+    border-bottom:1px solid #333;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.centerSection .response .responsebutton {
+    background-color: #1491F4;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.responsebutton:hover {
+    background-color: #117fd8;
+}
+
+
+.centerSection h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.centerSection .events {
+    display: flex;
+    font-size: 21px;
+    margin-bottom: 20px;
+    justify-content: end;
+}
+
+.centerSection .eventsIcon {
+    font-size: 25px;
+}
+
+.centerSection .buttonsRow {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    width: 100%;
+}
+
+.centerSection .currentButton,
+.centerSection .completedButton {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: -10px;
+    width: 200px;
+}
+
+.centerSection .currentButton:focus,
+.centerSection .completedButton:focus {
+    outline: none;
+}
+
+.centerSection .currentButton:hover,
+.centerSection .completedButton:hover {
+    color: #1491F4;
+}
+
+.centerSection .currentButton::after,
+.centerSection .completedButton::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #1491F4;
+    transition: width 0.3s ease;
+}
+
+.centerSection .currentButton:focus::after,
+.centerSection .completedButton:focus::after {
+    width: 100%;
+}
+
+.centerSection .publications {
+    overflow: hidden;/* Oculta el contenido que excede la altura máxima */
+}
+
+.centerSection .publication {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.centerSection .publication p {
+    color: #fff;
+    margin-top: 10px;
+}
+
+.centerSection .messageContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+.centerSection .profileInfo {
+    margin-right: 10px;
+}
+
+.centerSection .profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.centerSection .messageBox {
+    position: relative;
+    margin-left: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 85%; /* Ajusta el ancho máximo del cuadro de mensaje */
+}
+
+.centerSection .messageTriangle {
+    position: absolute;
+    top: 10px; /* Posición arriba del cuadro de mensaje */
+    left: -10px; /* Posición a la derecha del cuadro de mensaje */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #333;
+}
+
+.centerSection .messageTitle {
+    margin: 0;
+}
+
+.centerSection .messageContent {
+    margin-top: 0;
+    text-align: justify;
+}
+
+.centerSection .postTime {
+    position: absolute;
+    color: #6da6fd;
+    font-size: 15px;
+    margin-left: auto;
+    margin-top: 10px;
+    right: 20px;
+}
+
+.centerSection .interactionButtons {
+    margin-top: 10px;
+}
+
+.centerSection .interactionButton {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.centerSection .interactionButton svg {
+    margin-right: 5px;
+}
+
+.centerSection .interactionButton:hover {
+    color: #1491F4;
+}
+
+.image {
+    width: 100%;
+    max-height: 450px;
+    height: auto;
+    font-size: 40px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.sectionSeparator {
+    margin-bottom: 30px;
+}
