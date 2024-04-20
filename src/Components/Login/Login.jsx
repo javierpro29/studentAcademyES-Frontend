@@ -9,10 +9,22 @@ import { Link, useNavigate } from "react-router-dom";
 const LOGIN_MUTATION = gql`
   mutation Login($usernameOrEmail: String!, $password: String!) {
     login(usernameOrEmail: $usernameOrEmail, password: $password) {
+      user{
+      id
+      username
+      firstName
+      rol{
+        id
+        rolname
+      }
+      lastName
+      email
+      }
       token
     }
   }
 `;
+let user
 
 const Login = () => {
   const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
@@ -58,7 +70,8 @@ const Login = () => {
       setEmailError("Por favor, utiliza un correo electrónico institucional.");
       return;
     }
-
+    
+    
     try {
       const { data } = await loginMutation({
         variables: {
@@ -66,9 +79,11 @@ const Login = () => {
           password,
         },
       });
-
+      
+      user = data.login.user
       const token = data.login.token;
       console.log("Login successful! Token:", token);
+      console.log("Login successful! User:", user);
 
       // Redirige a la página "/home"
       navigate("/home");
@@ -96,7 +111,7 @@ const Login = () => {
               onChange={handleEmailChange}
             />
             {emailError && <div className={styles.error}>{emailError}</div>}
-            
+
             <div className={styles.passwordContainer}>
 
               <input
@@ -145,3 +160,4 @@ const Login = () => {
 };
 
 export default Login;
+export { user };

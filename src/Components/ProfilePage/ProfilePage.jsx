@@ -4,7 +4,7 @@ import LeftSection from '../Sections/LeftSection/LeftSection';
 import RightSection from '../Sections/RightSection/RightSection';
 import { RiArrowLeftLine, RiEdit2Line } from 'react-icons/ri';
 import style from "./ProfilePage.module.css";
-import profile from "../../assets/images/profile.png";
+import {user} from  "../Login/Login"
 
 const ProfilePage = () => {
     const navigate = useNavigate();
@@ -57,18 +57,18 @@ const ProfilePage = () => {
                 </div>
 
                 <div className={style.profileBanner}>
-                    <img src={profile} alt="Banner" className={style.bannerImage} />
+                    <img src={ `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`} alt="Banner" className={style.bannerImage} />
                 </div>
 
                 <div className={style.profileImageContainer}>
-                    <img src={profile} alt="Profile" className={style.profileImage} />
+                    <img src={ `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`} alt="Profile" className={style.profileImage} />
                 </div>
 
                 <button className={style.editProfileButton} onClick={handleEditProfile}><RiEdit2Line className={style.iconprofile} /> Edit Profile</button>
 
                 <div className={style.profileInfo}>
-                    <p className={style.profileName}>{profileInfo.name}</p>
-                    <p className={style.profileHandle}>{profileInfo.handle}</p>
+                    <p className={style.profileName}>{user ? ( user.firstName + ' '+ user.lastName) : 'usuario no encontrado'}</p>
+                    <p className={style.profileHandle}>@{user ? ( user.username ) : 'usuario no encontrado'}</p>
                 </div>
 
                 {/* Modal */}
@@ -104,15 +104,15 @@ const ProfilePage = () => {
 
                 <div className={style.profileStats}>
                     <div className={style.stat}>
-                        <p className={style.statNumber}>500</p>
+                        <p className={style.statNumber}>0</p>
                         <p className={style.statName}>Amigos</p>
                     </div>
                     <div className={style.stat}>
-                        <p className={style.statNumber}>50</p>
+                        <p className={style.statNumber}>0</p>
                         <p className={style.statName}>Grupos</p>
                     </div>
                     <div className={style.stat}>
-                        <p className={style.statNumber}>30</p>
+                        <p className={style.statNumber}>0</p>
                         <p className={style.statName}>Foros</p>
                     </div>
                 </div>

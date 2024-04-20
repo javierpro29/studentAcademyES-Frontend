@@ -4,7 +4,31 @@ import RightSection from '../Sections/RightSection/RightSection';
 import { FaRegHeart, FaRegComment, FaShare, FaCloudUploadAlt, FaRegImage, FaTimes } from 'react-icons/fa';
 import style from "./HomePage.module.css";
 import signupSideImage from "../../assets/images/LoginImage.png";
+import {user} from  "../Login/Login"
+import { useMutation,useLazyQuery, gql } from "@apollo/client";
+
 import profile from "../../assets/images/profile.png";
+
+const postQuery =gql`query Posts {
+    posts {
+      title
+      id
+      content
+      author{
+        firstName
+        lastName
+        username
+    }
+    likes {
+        id
+      }
+      creationDate
+      comments {
+        id
+        content
+      }
+    }
+  }`
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -12,24 +36,26 @@ const HomePage = () => {
     const [newPostImageData, setNewPostImageData] = useState(null);
     const [comments, setComments] = useState([]);
     const [commentText, setCommentText] = useState('');
-    const [showPostModal, setShowPostModal] = useState(false);
+  const [getPosts] = useLazyQuery(postQuery);
+  
 
-    useEffect(() => {
-        const fetchedPosts = [
-            {
-                id: 1,
-                author: 'Dariel Restituyo',
-                handle: '@restituyo',
-                time: '1 hour ago',
-                image: signupSideImage,
-                text: 'Esto es un simple post.',
-                likes: 0,
-                comments: 0,
-                shares: 0,
-                showCommentInput: false // Nuevo estado para controlar el área de comentario
+    const [showPostModal, setShowPostModal] = useState(false);
+  
+    useEffect( () => {
+
+        async function fetchPosts() {
+            try {
+                const { data, error } = await getPosts();
+                if (error) {
+                    console.error("Error fetching posts:", error);
+                    return;
+                }
+                setPosts(data.posts); // Assuming data.posts is the array you need
+            } catch (err) {
+                console.error("Fetching posts failed:", err);
             }
-        ];
-        setPosts(fetchedPosts);
+        }
+        fetchPosts();
 
         const lastPost = localStorage.getItem('lastPost');
         if (lastPost) {
@@ -38,19 +64,16 @@ const HomePage = () => {
             setNewPostImageData(imageData);
         }
     }, []);
+    
+
 
     const handlePostSubmit = () => {
         if (newPost.trim() !== '' || newPostImageData) {
             const newPostData = {
-                id: posts.length + 1,
-                author: 'Dariel Restituyo',
-                handle: '@restituyo',
-                time: 'Just now',
-                text: newPost,
+                id: posts.length() + 1,
+                title: '',
+                content: '',
                 image: newPostImageData,
-                likes: 0,
-                comments: 0,
-                shares: 0,
                 showCommentInput: false // estado para controlar el área de comentario
             };
             setPosts([newPostData, ...posts]); //new post al principio
@@ -135,7 +158,7 @@ const HomePage = () => {
         <div className={style.homePage}>
             <LeftSection />
             <div className={style.centerSection}>
-                <h2>Welcome, Dariel Restituyo</h2>
+                <h2>Welcome, {user ? ( user.firstName + ' '+ user.lastName) : 'usuario no encontrado'}</h2>
                 <div className={style.PostButtonContainer}>
                     <textarea
                         className={style.postTextarea}
@@ -152,30 +175,30 @@ const HomePage = () => {
                     {posts.map((post, index) => (
                         <div key={post.id} className={style.publication}>
                             <div className={style.profileInfo}>
-                                <img src={profile} alt="Profile" className={style.profileImage} />
+                                <img src={ `https://ui-avatars.com/api/?name=${post.author.firstName}+${post.author.lastName}`} alt="Profile" className={style.profileImage} />
                                 <div className={style.profileDetails}>
-                                    <p className={style.profileName}>{post.author}</p>
-                                    <p className={style.profileHandle}>{post.handle}</p>
+                                    <p className={style.profileName}>{post.author.firstName} {post.author.lastName} ({user.rol.rolname})</p>
+                                    <p className={style.profileHandle}>@{post.author.username}</p>
                                 </div>
-                                <span className={style.postTime}>{post.time}</span>
+                                <span className={style.postTime}>{new Date(post.creationDate).getDay() ===new Date().getDay() ? 'Reciente': 'No es reciente'}</span>
                                 <button className={style.deletePostButton} onClick={() => handleDeletePost(post.id)}>
                                     <FaTimes />
                                 </button>
                             </div>
-                            <p>{post.text}</p>
-                            {post.image && <img src={post.image} alt="Background" className={style.image} />} {/* Moviendo la imagen aquí */}
+                            <p>{post.content}</p>
+                            {post.image && <img src={`https://picsum.photos/200/300`} alt="Background" className={style.image} />}  
                             <div className={style.interactionButtons}>
                                 <button className={style.interactionButton} onClick={() => handleLike(post.id)}>
-                                    <FaRegHeart style={{ color: 'red' }} /> {post.likes}
+                                    <FaRegHeart style={{ color: 'red' }} /> {post.likes.length}
                                 </button>
                                 <button className={style.interactionButton} onClick={() => handleComment(post.id)}>
-                                    <FaRegComment /> {post.comments}
+                                    <FaRegComment /> {post.comments.length}
                                 </button>
                                 <button className={style.interactionButton} onClick={() => handleShare(post.id)}>
-                                    <FaShare /> {post.shares}
+                                    <FaShare /> 0
                                 </button>
-                            </div>
-                            {post.showCommentInput && (
+                             </div>
+                            {post.comments && (
                                 <div className={style.commentInputContainer}>
                                     <textarea
                                         className={style.commentTextArea}
@@ -189,9 +212,9 @@ const HomePage = () => {
                                     </div>
                                 </div>
                             )}
-                            {comments.filter(comment => comment.postId === post.id).map((comment, commentIndex) => (
+                            {post.comments.map((comment, commentIndex) => (
                                 <div key={commentIndex} className={style.comment}>
-                                    <p>{comment.comment}</p>
+                                    <p>{comment.content}</p>
                                     <button onClick={() => handleDeleteComment(post.id, commentIndex)}>
                                         <FaTimes className={style.iconclose} />
                                     </button>

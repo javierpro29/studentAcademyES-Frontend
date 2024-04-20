@@ -2,6 +2,7 @@ import React from "react";
 import { RiSearchEyeLine} from 'react-icons/ri';
 import style from "./RightSection.module.css";
 import profile from "../../../assets/images/profile.png";
+import {user} from  "../../Login/Login"
 
 const RightSection = () => {
   return (
@@ -17,12 +18,20 @@ const RightSection = () => {
                     <div className={style.profileInfo}>
                         <img src={profile} alt="Profile" className={style.profileImage} />
                         <div className={style.profileDetails}>
-                            <p className={style.profileName}>Dariel Restituyo</p>
-                            <p className={style.profileHandle}>@restituyo</p>
+                            <p className={style.profileName}>Julian Modesto (Estudiante)</p>
+                            <p className={style.profileHandle}>@julian002</p>
                         </div>
                         <button className={style.buttonMore}>Follow</button>
                     </div>
                     {/* Equipo recomendado 2 */}
+                    <div className={style.profileInfo}>
+                        <img src={ `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`} alt="Profile" className={style.profileImage} />
+                        <div className={style.profileDetails}>
+                            <p className={style.profileName}>{user ? ( user.firstName + ' '+ user.lastName + ' '+ '('+ user.rol.rolname + ')') : 'usuario no encontrado'}</p>
+                            <p className={style.profileHandle}>@{user ? ( user.username ) : 'nombre de usuario no encontrado'}</p>
+                        </div>
+                        <button className={style.buttonMore}>Follow</button>
+                    </div>
                     {/* Equipo recomendado 3 */}
                     <span className={style.showMore}>Show more</span>
                 </div>

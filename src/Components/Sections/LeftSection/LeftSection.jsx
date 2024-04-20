@@ -5,6 +5,7 @@ import { TfiHelp, TfiHelpAlt } from "react-icons/tfi";
 import style from "./LeftSection.module.css";
 import profile from "../../../assets/images/profile.png";
 import logoImg from "../../../assets/images/Logo2.png"
+import {user} from  "../../Login/Login"
 
 const LeftSection = () => {
 
@@ -36,10 +37,10 @@ const LeftSection = () => {
                     <div className={style.navButton} onClick={() => handleNavigation('/help')}>{location.pathname === "/help" ? <TfiHelp /> : <TfiHelpAlt />}Help</div>
                 </div>
                 <div className={style.profileInfo} onClick={toggleMenu}>
-                    <img src={profile} alt="Profile" />
+                    <img src={ `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`} alt="Profile" />
                     <div>
-                        <p className={style.profileName}>Dariel Restituyo</p>
-                        <p className={style.profileHandle}>@restituyo</p>
+                        <p className={style.profileName}>{user ? ( user.firstName + ' '+ user.lastName + ' '+ '('+ user.rol.rolname + ')') : 'usuario no encontrado'}</p>
+                        <p className={style.profileHandle}>@{user ? ( user.username ) : 'nombre de usuario no encontrado'}</p>
                     </div>
                     <RiSettings5Fill className={style.settingsIcon} />
                     {menuOpen && (
