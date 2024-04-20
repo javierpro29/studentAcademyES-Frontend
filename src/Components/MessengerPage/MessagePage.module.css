@@ -1,268 +1,138 @@
-/* Estilos Generales*/
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #222;
-    /* Fondo de la sección */
-}
-
 .homePage {
-    display: flex;
-    justify-content: center;
-    /* Centro el contenido horizontalmente */
-    align-items: flex-start;
-    /* Alínea el contenido arriba */
-    min-height: 100dvh;
-    /* Ajustar la altura mínima de la página */
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
 }
-
-/* Estilos para la Seccion Central*/
 
 .centerSection {
-    flex-grow: 1;
-    padding: 20px;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    overflow-y: auto;
-    max-width: 800px;
-    width: 100%;
-    color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .goBackButton {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    cursor: pointer;
-    border-bottom: 1px solid #666;
-    padding: 5px 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-
-.gobackicon{
-    padding: 5px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-bottom: -8px;
+.goBackButton h2 {
+  margin-left: 5px;
 }
 
-.gobackicon:hover{
-    background-color: #333;
+.topSection {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
-.centerSection .iconButton {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    margin-left: 10px;
+.topImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-.centerSection .iconButton:hover {
-    color: #1491F4;
+.title {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
-.centerSection .topSection {
-    display: flex;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #666;
-    margin-bottom: 5px;
+.subtitle {
+  margin: 0;
+  color: #666;
 }
 
-.centerSection .topImage {
-    display: flex;
-    width: 75px;
-    height: 75px;
-    border-radius: 10%;
-    margin-right: 10px;
-    margin-bottom: -25px;
+.publications {
+  flex: 1;
+  overflow-y: auto;
 }
 
-.centerSection .topSection .title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: -5px;
+.publication {
+  margin-bottom: 20px;
 }
 
-.centerSection .topSection .subtitle {
-    font-weight: lighter;
-    font-size: 15px;
-    margin-top: 0;
-    margin-bottom: -5px;
+.messageContainer {
+  display: flex;
+  align-items: flex-start;
 }
 
-.centerSection .topSection .description {
-    color: #888;
-    margin-top: 0;
-    font-size: 13px;
-    text-align: justify;
+.profileInfo {
+  margin-right: 10px;
 }
 
-
-
-.centerSection h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.centerSection .events {
-    display: flex;
-    font-size: 21px;
-    margin-bottom: 20px;
-    justify-content: end;
+.messageBox {
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
 }
 
-.centerSection .eventsIcon {
-    font-size: 25px;
+.userMessage .messageBox {
+  align-self: flex-end;
+  background-color: #dcf8c6;
 }
 
-.centerSection .buttonsRow {
-    display: flex;
-    justify-content: end;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgb(167, 167, 167);
-    width: 100%;
+.friendMessage .messageBox {
+  align-self: flex-start;
+  background-color: #e6e6e6;
 }
 
-.centerSection .currentButton,
-.centerSection .completedButton {
-    border: none;
-    background: transparent;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-bottom: -10px;
-    width: 200px;
+.messageTriangle {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #f2f2f2;
 }
 
-.centerSection .currentButton:focus,
-.centerSection .completedButton:focus {
-    outline: none;
+.messageContent {
+  margin: 0;
 }
 
-.centerSection .currentButton:hover,
-.centerSection .completedButton:hover {
-    color: #1491F4;
+.postTime {
+  font-size: 0.8rem;
+  color: #666;
 }
 
-.centerSection .currentButton::after,
-.centerSection .completedButton::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #1491F4;
-    transition: width 0.3s ease;
+.footer {
+  padding: 20px;
+  border-top: 1px solid #ccc;
 }
 
-.centerSection .currentButton:focus::after,
-.centerSection .completedButton:focus::after {
-    width: 100%;
+.footer form {
+  display: flex;
+  align-items: center;
 }
 
-.centerSection .publications {
-    overflow: hidden;/* Oculta el contenido que excede la altura máxima */
+.footer input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.centerSection .publication {
-    padding: 10px;
-    margin-bottom: 20px;
+.footer button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.centerSection .publication p {
-    color: #fff;
-    margin-top: 10px;
-}
-
-.centerSection .messageContainer {
-    display: flex;
-    align-items: flex-start;
-}
-
-.centerSection .profileInfo {
-    margin-right: 10px;
-}
-
-.centerSection .profileImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.centerSection .messageBox {
-    position: relative;
-    margin-left: 5px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    max-width: 85%; /* Ajusta el ancho máximo del cuadro de mensaje */
-}
-
-.centerSection .messageTriangle {
-    position: absolute;
-    top: 10px; /* Posición arriba del cuadro de mensaje */
-    left: -10px; /* Posición a la derecha del cuadro de mensaje */
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #333;
-}
-
-.centerSection .messageTitle {
-    margin: 0;
-}
-
-.centerSection .messageContent {
-    margin-top: 0;
-    text-align: justify;
-}
-
-.centerSection .postTime {
-    position: absolute;
-    color: #6da6fd;
-    font-size: 15px;
-    margin-left: auto;
-    margin-top: 10px;
-    right: 20px;
-}
-
-.centerSection .interactionButtons {
-    margin-top: 10px;
-}
-
-.centerSection .interactionButton {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.centerSection .interactionButton svg {
-    margin-right: 5px;
-}
-
-.centerSection .interactionButton:hover {
-    color: #1491F4;
-}
-
-.image {
-    width: 100%;
-    max-height: 450px;
-    height: auto;
-    font-size: 40px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.sectionSeparator {
-    margin-bottom: 30px;
+.footer button:hover {
+  background-color: #0056b3;
 }
